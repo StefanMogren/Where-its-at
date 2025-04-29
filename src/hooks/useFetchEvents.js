@@ -10,7 +10,7 @@ export const useFetchEvents = () => {
 		setIsLoading(true);
 		axios
 			.get('https://santosnr6.github.io/Data/events.json')
-			.then((response) => setEvents(response.data))
+			.then((response) => setEvents(response.data.events))
 			.catch((error) => setIsError(error))
 			.finally(() => setIsLoading(false));
 	}, []);
