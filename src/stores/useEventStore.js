@@ -2,10 +2,10 @@ import { create } from 'zustand';
 
 const useEventStore = create((set) => ({
 	events: [],
-	emptyEvents: () => {
-		set({ events: [] });
+	setEvents: (newEvents) => {
+		set({ events: newEvents });
 	},
-	addNewEvent: (newEvent) => {
+	/* addNewEvent: (newEvent) => {
 		set((state) => ({
 			events: [
 				...state.events,
@@ -23,7 +23,7 @@ const useEventStore = create((set) => ({
 				},
 			],
 		}));
-	},
+	}, */
 	increaseEventAmount: (id) => {
 		set((state) => {
 			const updatedEvent = state.events.map((oldEvent) => {
