@@ -13,6 +13,7 @@
 	height: 667px;
 	max-width: 375px;
 	margin: auto;
+	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

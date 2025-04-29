@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import './footer.css';
 
 // library.add(faCircle);
 // const test = window.FontAwesome.icon({ prefix: 'fas', iconName: 'circle' });
