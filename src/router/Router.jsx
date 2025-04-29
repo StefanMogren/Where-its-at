@@ -1,6 +1,7 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 import AddEventPage from '../pages/AddEventPage/AddEventPage';
 import OrderPage from '../pages/OrderPage/OrderPage';
+import ContentPage from '../pages/ContentPage/ContentPage';
 
 function Layout() {
 	return (
@@ -18,7 +19,7 @@ export const Router = createBrowserRouter([
 			{
 				path: '/',
 				// Är den som innehåller swiper för de tre huvudsidorna
-				element: <ContentPages />,
+				element: <ContentPage />,
 			},
 			{
 				path: '/add-event',
