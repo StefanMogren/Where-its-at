@@ -1,0 +1,21 @@
+.home-page {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+}
+
+.home-page__img {
+	width: 50%;
+}
+
+.home-page__title {
+	color: var(--pink);
+	font-size: 2rem;
+}
+
+.home-page__subtitle {
+	color: white;
+	font-size: 1.4rem;
+}
