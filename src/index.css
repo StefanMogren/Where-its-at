@@ -9,6 +9,17 @@
 	font-family: 'Fira Sans', sans-serif;
 }
 
+:root {
+	--primary-bg: #231f42;
+	--pink: #f56b9a;
+	--teal: #37aeab;
+
+	--ticket-shadow-3: rgba(0, 0, 0, 0.03);
+	--ticket-shadow-6: rgba(0, 0, 0, 0.06);
+	--ticket-shadow-9: rgba(0, 0, 0, 0.09);
+	--ticket-shadow-12: rgba(0, 0, 0, 0.12);
+}
+
 .wrapper {
 	height: 667px;
 	max-width: 375px;
@@ -21,13 +32,10 @@
 	background-color: #231f42;
 }
 
-:root {
-	--primary-bg: #231f42;
-	--pink: #f56b9a;
-	--teal: #37aeab;
-
-	--ticket-shadow-3: rgba(0, 0, 0, 0.03);
-	--ticket-shadow-6: rgba(0, 0, 0, 0.06);
-	--ticket-shadow-9: rgba(0, 0, 0, 0.09);
-	--ticket-shadow-12: rgba(0, 0, 0, 0.12);
+h1 {
+	color: var(--pink);
+	font-size: 2rem;
+	font-style: italic;
+	font-weight: 600;
+	font-family: 'Sansita', sans-serif;
 }

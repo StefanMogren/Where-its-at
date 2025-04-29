@@ -8,7 +8,8 @@ import Footer from '../../components/Footer/Footer';
 function ContentPage() {
 	return (
 		<>
-			<HomePage />
+			{/* <HomePage /> */}
+			<EventsPage />
 			<Footer />
 		</>
 	);

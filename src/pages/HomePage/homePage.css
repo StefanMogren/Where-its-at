@@ -11,13 +11,8 @@
 	width: 50%;
 }
 
-.home-page__title {
-	color: var(--pink);
-	font-size: 2rem;
-	font-style: italic;
-	font-weight: 600;
-	font-family: 'Sansita', sans-serif;
-}
+/* .home-page__title {
+} */
 
 .home-page__subtitle {
 	color: white;
