@@ -25,7 +25,7 @@ function ContentPage() {
 	return (
 		<>
 			{/* <HomePage /> */}
-			{events && <EventsPage events={events} />}
+			<EventsPage />
 			<Footer />
 		</>
 	);
