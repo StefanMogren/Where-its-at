@@ -9,10 +9,23 @@
 
 .events-page__search {
 	width: 100%;
-	border: none;
-	border-radius: 3px;
-	font-size: 2rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	background-color: #ffffff1a;
+	border-radius: 3px;
+
+	.events-page__icon {
+		padding: 0.5rem;
+	}
+
+	input {
+		width: 100%;
+		font-size: 2rem;
+		color: white;
+		background: none;
+		border: none;
+	}
 }
 
 .events-page__event-container {
