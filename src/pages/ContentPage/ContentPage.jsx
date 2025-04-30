@@ -7,7 +7,13 @@ import useEventStore from '../../stores/useEventStore';
 import { useFetchEvents } from '../../hooks/useFetchEvents';
 import { useEffect } from 'react';
 
-// Ska använda Swiper för att hoppa mellan HomePage, EventsPage och TicketsPage
+// import Swiper from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 function ContentPage() {
 	const { events: eventsAPI, isLoading, isError } = useFetchEvents();
@@ -19,13 +25,20 @@ function ContentPage() {
 			setEvents(eventsAPI);
 		}
 	}, [eventsAPI]);
-
 	console.log(events);
 
 	return (
 		<>
-			{/* <HomePage /> */}
-			<EventsPage />
+			<Swiper
+				pagination={true}
+				modules={[Pagination]}
+				className='mySwiper'>
+				<SwiperSlide>
+					{/* <HomePage /> */}
+					Slide 1
+				</SwiperSlide>
+				<SwiperSlide>Slide 2{/* <EventsPage /> */}</SwiperSlide>
+			</Swiper>
 			<Footer />
 		</>
 	);

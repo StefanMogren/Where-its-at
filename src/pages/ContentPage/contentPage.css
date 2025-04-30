@@ -1,0 +1,12 @@
+.swiper {
+	width: 375px;
+	height: 667px;
+}
+
+.swiper-wrapper {
+	width: 100%;
+}
+
+.swiper-slide {
+	width: 100%;
+}
