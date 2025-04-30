@@ -1,6 +1,3 @@
-import HomePage from '../HomePage/HomePage';
-import EventsPage from '../EventsPage/EventsPage';
-import TicketsPage from '../TicketsPage/TicketsPage';
 import Footer from '../../components/Footer/Footer';
 
 import useEventStore from '../../stores/useEventStore';

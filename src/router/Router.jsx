@@ -17,7 +17,7 @@ export const Router = () => {
 				<Route path='/tickets' element={<SwiperWrapper />} />
 
 				{/* --- React Routingsidor --- */}
-				<Route path='/add-events/:id' element={<AddEventPage />} />
+				<Route path='/add-event/:id' element={<AddEventPage />} />
 
 				<Route path='/order' element={<OrderPage />} />
 

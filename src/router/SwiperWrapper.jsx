@@ -19,6 +19,9 @@ const indexToRoute = {
 	2: '/tickets',
 };
 
+import useEventStore from '../stores/useEventStore';
+import { useFetchEvents } from '../hooks/useFetchEvents';
+
 const SwiperWrapper = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -41,21 +44,38 @@ const SwiperWrapper = () => {
 		}
 	};
 
+	// Saker för att hämta Eventdata från API
+	// Även förvara datan i useEventsStore
+	const { events: eventsAPI, isLoading, isError } = useFetchEvents();
+	const { events, setEvents } = useEventStore();
+	useEffect(() => {
+		if (events.length === 0 && eventsAPI.length > 0) {
+			setEvents(eventsAPI);
+		}
+	}, [eventsAPI]);
+	console.log(events);
+
 	return (
 		<Swiper
 			onSwiper={(swiper) => (swiperRef.current = swiper)}
 			onSlideChange={handleSlideChange}
 			allowTouchMove={true}>
 			<SwiperSlide>
-				<HomePage />
+				<section className='wrapper'>
+					<HomePage />
+				</section>
 			</SwiperSlide>
 
 			<SwiperSlide>
-				<EventsPage />
+				<section className='wrapper'>
+					<EventsPage />
+				</section>
 			</SwiperSlide>
 
 			<SwiperSlide>
-				<TicketsPage />
+				<section className='wrapper'>
+					<TicketsPage />
+				</section>
 			</SwiperSlide>
 		</Swiper>
 	);
