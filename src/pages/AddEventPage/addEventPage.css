@@ -1,0 +1,32 @@
+.add-event-page {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	align-items: center;
+}
+
+.add-event-page__subtitle {
+	color: #ffffffcc;
+}
+
+.add-event-page__info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.add-event-page__event-title {
+	font-style: italic;
+	color: var(--pink);
+}
+
+.add-event-page__date {
+	color: var(--teal);
+}
+
+.add-event-page__location {
+	font-style: italic;
+	color: #ffffffb2;
+}
