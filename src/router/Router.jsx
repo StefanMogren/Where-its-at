@@ -22,7 +22,7 @@ export const Router = createBrowserRouter([
 				element: <ContentPage />,
 			},
 			{
-				path: '/add-event',
+				path: '/add-event/:id',
 				element: <AddEventPage />,
 			},
 			{
