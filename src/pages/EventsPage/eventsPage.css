@@ -1,7 +1,23 @@
 .events-page {
 	width: 100%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	align-items: center;
 }
 
 .events-page__search {
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	font-size: 2rem;
+	background-color: #ffffff1a;
+}
+
+.events-page__event-container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
 	width: 100%;
 }

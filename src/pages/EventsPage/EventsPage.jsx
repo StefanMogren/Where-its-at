@@ -7,7 +7,7 @@ function EventsPage() {
 
 	return (
 		<main className='events-page'>
-			<h1>Events</h1>
+			<h1 className='events-page__title'>Events</h1>
 			<input
 				className='events-page__search'
 				type='search'
