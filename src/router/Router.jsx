@@ -1,8 +1,8 @@
-import { createBrowserRouter, Outlet } from 'react-router-dom';
+// import { Outlet } from 'react-router-dom';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AddEventPage from '../pages/AddEventPage/AddEventPage';
 import OrderPage from '../pages/OrderPage/OrderPage';
-import ContentPage from '../pages/ContentPage/ContentPage';
+// import ContentPage from '../pages/ContentPage/ContentPage';
 import SwiperWrapper from './SwiperWrapper';
 
 export const Router = () => {

@@ -1,7 +1,11 @@
 import './orderPage.css';
 
 function OrderPage() {
-	return <main>OrderPage</main>;
+	return (
+		<section className='wrapper'>
+			<main>OrderPage</main>
+		</section>
+	);
 }
 
 export default OrderPage;

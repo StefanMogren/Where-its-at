@@ -61,21 +61,15 @@ const SwiperWrapper = () => {
 			onSlideChange={handleSlideChange}
 			allowTouchMove={true}>
 			<SwiperSlide>
-				<section className='wrapper'>
-					<HomePage />
-				</section>
+				<HomePage />
 			</SwiperSlide>
 
 			<SwiperSlide>
-				<section className='wrapper'>
-					<EventsPage />
-				</section>
+				<EventsPage />
 			</SwiperSlide>
 
 			<SwiperSlide>
-				<section className='wrapper'>
-					<TicketsPage />
-				</section>
+				<TicketsPage />
 			</SwiperSlide>
 		</Swiper>
 	);
