@@ -27,7 +27,7 @@
 	padding: 1.5rem;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	background-color: #231f42;
 }
