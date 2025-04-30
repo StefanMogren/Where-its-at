@@ -4,6 +4,7 @@
 	flex-direction: row;
 	color: white;
 	list-style-type: none;
+	text-decoration: none;
 }
 
 .event-item__date {
