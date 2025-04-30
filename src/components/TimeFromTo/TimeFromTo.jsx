@@ -1,7 +1,7 @@
 import './timeFromTo.css';
 
 function TimeFromTo({ from, to }) {
-	// Fixar så tiderna inuti dateTime använder kolon (:) samt att tiderna som visas använder punkt (.)
+	// Fixar så tiderna inuti dateTime-attributet använder kolon (:) samt att tiderna som visas använder punkt (.)
 	return (
 		<>
 			<time dateTime={from.replace('.', ':')}>

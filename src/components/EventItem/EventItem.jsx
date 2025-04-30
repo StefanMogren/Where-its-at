@@ -13,16 +13,20 @@ function EventItem({ event }) {
 
 	return (
 		<li className='event-item'>
-			<Date when={date} />
-			<section>
-				<div>
-					<h2>{name}</h2>
-					<p>{where}</p>
-					<p>
-						<TimeFromTo from={from} to={to} />
-					</p>
-				</div>
-				<p>{price} sek</p>
+			<div className='event-item__date'>
+				<Date when={date} />
+			</div>
+			<section className='event-item__info'>
+				<h2 className='event-item__title'>{name}</h2>
+				<section className='event-item__details'>
+					<div className='event-item__inner-details'>
+						<p className='event-item__location'>{where}</p>
+						<p className='event-item__time'>
+							<TimeFromTo from={from} to={to} />
+						</p>
+					</div>
+					<p className='event-item__price'>{price} sek</p>
+				</section>
 			</section>
 		</li>
 	);
