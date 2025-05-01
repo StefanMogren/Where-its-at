@@ -27,6 +27,7 @@ const SwiperWrapper = () => {
 	const location = useLocation();
 	const swiperRef = useRef(null);
 
+	// --- Swiper ---
 	// Ser till så Swiper visar rätt sida när URL ändras
 	// Fast bara för de tre sidor som Swiper "känner till".
 	useEffect(() => {
@@ -44,17 +45,20 @@ const SwiperWrapper = () => {
 		}
 	};
 
+	// --- useFetchEvent ---
 	// Saker för att hämta Eventdata från API
 	// Även förvara datan i useEventsStore
 	const { events: eventsAPI, isLoading, isError } = useFetchEvents();
-	const { events, setEvents } = useEventStore();
+	const { events, addNewEvent } = useEventStore();
 	useEffect(() => {
 		if (events.length === 0 && eventsAPI.length > 0) {
-			setEvents(eventsAPI);
+			eventsAPI.forEach((event) => addNewEvent(event));
+			// setEvents(eventsAPI);
 		}
 	}, [eventsAPI]);
 	console.log(events);
 
+	// --- Return ---
 	return (
 		<Swiper
 			onSwiper={(swiper) => (swiperRef.current = swiper)}

@@ -5,7 +5,7 @@ const useEventStore = create((set) => ({
 	setEvents: (newEvents) => {
 		set({ events: newEvents });
 	},
-	/* addNewEvent: (newEvent) => {
+	addNewEvent: (newEvent) => {
 		set((state) => ({
 			events: [
 				...state.events,
@@ -14,7 +14,7 @@ const useEventStore = create((set) => ({
 					name: newEvent.name,
 					price: newEvent.price,
 					where: newEvent.where,
-					amount: 1,
+					amount: 0,
 					when: {
 						date: newEvent.when.date,
 						from: newEvent.when.from,
@@ -23,7 +23,7 @@ const useEventStore = create((set) => ({
 				},
 			],
 		}));
-	}, */
+	},
 	increaseEventAmount: (id) => {
 		set((state) => {
 			const updatedEvent = state.events.map((oldEvent) => {
