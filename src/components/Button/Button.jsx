@@ -2,10 +2,10 @@ import './button.css';
 import useEventStore from '../../stores/useEventStore';
 
 function Button({ amount, id, children }) {
-	const { events, setEventAmount } = useEventStore();
+	const { events, addEventAmount } = useEventStore();
 
 	const addToBasket = () => {
-		setEventAmount(id, amount);
+		addEventAmount(id, amount);
 		console.log(events);
 	};
 
