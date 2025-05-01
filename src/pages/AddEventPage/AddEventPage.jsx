@@ -3,13 +3,11 @@ import useEventStore from '../../stores/useEventStore';
 import { useParams } from 'react-router-dom';
 import TimeFromTo from '../../components/TimeFromTo/TimeFromTo';
 import TicketCounter from '../../components/TicketCounter/TicketCounter';
+import Button from '../../components/Button/Button';
 
 function AddEventPage() {
 	const { events } = useEventStore();
 	const { id } = useParams();
-	console.log('useParams id är ' + id);
-	console.log('events innan currentEvent är');
-	console.log(events);
 
 	const currentEvent = events.find((event) => event.id === id);
 
@@ -30,7 +28,7 @@ function AddEventPage() {
 					You are about to score some tickets to
 				</p>
 
-				{/* --- Eventinfo --- */}
+				{/* --- Eventdetaljer --- */}
 				<section className='add-event-page__info'>
 					<h2 className='add-event-page__event-title'>{name}</h2>
 					<p className='add-event-page__date'>
@@ -45,6 +43,9 @@ function AddEventPage() {
 						{amount * price} sek
 					</h2>
 				</TicketCounter>
+
+				{/* --- Lägg till-knappen --- */}
+				<Button>Lägg i varukorgen</Button>
 			</main>
 		</section>
 	);
