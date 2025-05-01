@@ -1,0 +1,21 @@
+.order-page {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+	width: 100%;
+}
+
+.order-page__event-title {
+	color: var(--pink);
+	font-style: italic;
+}
+
+.order-page__event-info {
+	color: var(--teal);
+}
+
+.order-page__total-cost {
+	color: white;
+	font-size: 2rem;
+}
