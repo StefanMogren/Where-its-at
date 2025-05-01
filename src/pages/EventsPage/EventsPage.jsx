@@ -5,7 +5,7 @@ import './eventsPage.css';
 import useEventStore from '../../stores/useEventStore';
 
 function EventsPage() {
-	const { events, setEvents } = useEventStore();
+	const { events } = useEventStore();
 
 	return (
 		<section className='wrapper'>

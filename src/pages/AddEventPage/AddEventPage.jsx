@@ -1,9 +1,11 @@
-import './addEventPage.css';
 import useEventStore from '../../stores/useEventStore';
-import { useParams } from 'react-router-dom';
-import TimeFromTo from '../../components/TimeFromTo/TimeFromTo';
 import TicketCounter from '../../components/TicketCounter/TicketCounter';
+import TimeFromTo from '../../components/TimeFromTo/TimeFromTo';
 import Button from '../../components/Button/Button';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import './addEventPage.css';
+import { number } from 'framer-motion';
 
 function AddEventPage() {
 	const { events } = useEventStore();
@@ -18,6 +20,8 @@ function AddEventPage() {
 		when: { date, from, to },
 		where,
 	} = currentEvent;
+
+	const [numberOfTickets, setNumberOfTickets] = useState(1);
 
 	return (
 		<section className='wrapper'>
@@ -38,9 +42,12 @@ function AddEventPage() {
 				</section>
 
 				{/* --- Räknaren, pris, antal --- */}
-				<TicketCounter amount={amount} id={id}>
+				<TicketCounter
+					amount={numberOfTickets}
+					increaseAmount={setNumberOfTickets}
+					decreaseAmount={setNumberOfTickets}>
 					<h2 className='add-event-page__cost'>
-						{amount * price} sek
+						{numberOfTickets * price} sek
 					</h2>
 				</TicketCounter>
 

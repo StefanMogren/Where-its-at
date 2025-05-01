@@ -24,6 +24,18 @@ const useEventStore = create((set) => ({
 			],
 		}));
 	},
+	setEventAmount: (id, newAmount) => {
+		set((state) => {
+			const updatedEvent = state.events.map((oldEvent) => {
+				if (oldEvent.id === id) {
+					return { ...oldEvent, amount: newAmount };
+				} else {
+					return { ...oldEvent };
+				}
+			});
+			return { events: updatedEvent };
+		});
+	},
 	increaseEventAmount: (id) => {
 		set((state) => {
 			const updatedEvent = state.events.map((oldEvent) => {
