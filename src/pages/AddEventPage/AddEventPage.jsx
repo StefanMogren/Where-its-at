@@ -9,7 +9,7 @@ import Basket from '../../components/Basket/Basket';
 // import { number } from 'framer-motion';
 
 function AddEventPage() {
-	const { events } = useEventStore();
+	const { events, addEventAmount } = useEventStore();
 	const { id } = useParams();
 
 	const currentEvent = events.find((event) => event.id === id);
@@ -22,6 +22,13 @@ function AddEventPage() {
 	} = currentEvent;
 
 	const [numberOfTickets, setNumberOfTickets] = useState(1);
+
+	// onClick-funktionen som skickas in i Button
+	const addToBasket = () => {
+		addEventAmount(id, numberOfTickets);
+		console.log(events);
+		setNumberOfTickets(0);
+	};
 
 	return (
 		<section className='wrapper'>
@@ -54,12 +61,7 @@ function AddEventPage() {
 				</TicketCounter>
 
 				{/* --- Lägg till-knappen --- */}
-				<Button
-					amount={numberOfTickets}
-					resetAmount={setNumberOfTickets}
-					id={id}>
-					Lägg i varukorgen
-				</Button>
+				<Button onClick={() => addToBasket()}>Lägg i varukorgen</Button>
 			</main>
 		</section>
 	);
