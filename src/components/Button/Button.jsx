@@ -1,10 +1,16 @@
 import './button.css';
+import useEventStore from '../../stores/useEventStore';
 
-function Button({ onClick, children }) {
+function Button({ amount, id, children }) {
+	const { events, setEventAmount } = useEventStore();
+
+	const addToBasket = () => {
+		setEventAmount(id, amount);
+		console.log(events);
+	};
+
 	return (
-		<button
-			className='button'
-			onClick={() => console.log('Button is clicked!')}>
+		<button className='button' onClick={() => addToBasket()}>
 			{children}
 		</button>
 	);

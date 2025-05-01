@@ -5,7 +5,7 @@ import Button from '../../components/Button/Button';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import './addEventPage.css';
-import { number } from 'framer-motion';
+// import { number } from 'framer-motion';
 
 function AddEventPage() {
 	const { events } = useEventStore();
@@ -16,7 +16,6 @@ function AddEventPage() {
 	const {
 		name,
 		price,
-		amount,
 		when: { date, from, to },
 		where,
 	} = currentEvent;
@@ -46,13 +45,16 @@ function AddEventPage() {
 					amount={numberOfTickets}
 					increaseAmount={setNumberOfTickets}
 					decreaseAmount={setNumberOfTickets}>
+					{/* --- children inuti komponenten */}
 					<h2 className='add-event-page__cost'>
 						{numberOfTickets * price} sek
 					</h2>
 				</TicketCounter>
 
 				{/* --- Lägg till-knappen --- */}
-				<Button>Lägg i varukorgen</Button>
+				<Button amount={numberOfTickets} id={id}>
+					Lägg i varukorgen
+				</Button>
 			</main>
 		</section>
 	);
