@@ -36,11 +36,14 @@ function OrderPage() {
 								decreaseAmount={() =>
 									decreaseEventAmount(event.id)
 								}>
+								{/* --- Eventnamnet --- */}
 								<h2 className='order-page__event-title'>
 									{event.name}
 								</h2>
+
+								{/* --- Datumet och tiden */}
 								<p className='order-page__event-info'>
-									{event.when.date}
+									{event.when.date}{' '}
 									<TimeFromTo
 										from={event.when.from}
 										to={event.when.to}
@@ -50,9 +53,15 @@ function OrderPage() {
 						);
 					}
 				})}
-				<p>Totalt värde på order</p>
-				<p className='order-page__total-cost'>{totalCost}</p>
-				<Button>Skicka order</Button>
+
+				{/* --- Totala kostnaden, skicka-knappen --- */}
+				<section className='order-page__summary'>
+					Totalt värde på order
+					<span className='order-page__total-cost'>
+						{totalCost} sek
+					</span>
+					<Button>Skicka order</Button>
+				</section>
 			</main>
 		</section>
 	);
