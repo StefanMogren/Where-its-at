@@ -1,22 +1,40 @@
 import './orderPage.css';
 import useEventStore from '../../stores/useEventStore';
+import useTicketStore from '../../stores/useTicketStore';
 import TicketCounter from '../../components/TicketCounter/TicketCounter';
 import TimeFromTo from '../../components/TimeFromTo/TimeFromTo';
 import Button from '../../components/Button/Button';
 import { useEffect, useState } from 'react';
 
 function OrderPage() {
-	const { events, increaseEventAmount, decreaseEventAmount } =
-		useEventStore();
+	const {
+		events,
+		increaseEventAmount,
+		decreaseEventAmount,
+		emptyAllEventAmount,
+	} = useEventStore();
+	const { tickets, addTicket } = useTicketStore();
 
 	const [totalCost, setTotalCost] = useState(0);
 
+	// Kontrollerar hur mycket den totala kostnaden är
 	useEffect(() => {
-		setTotalCost(0);
+		let totalCost = 0;
 		events.forEach((event) => {
-			setTotalCost((prevTotal) => prevTotal + event.amount * event.price);
+			totalCost += event.amount * event.price;
 		});
+		setTotalCost(totalCost);
 	}, [events]);
+
+	const purchaseTickets = () => {
+		events.forEach((event) => {
+			if (event.amount > 0) {
+				addTicket(event);
+			}
+		});
+		emptyAllEventAmount();
+	};
+	console.log(tickets);
 
 	return (
 		<section className='wrapper'>
@@ -60,7 +78,7 @@ function OrderPage() {
 					<span className='order-page__total-cost'>
 						{totalCost} sek
 					</span>
-					<Button>Skicka order</Button>
+					<Button onClick={purchaseTickets}>Skicka order</Button>
 				</section>
 			</main>
 		</section>

@@ -24,6 +24,17 @@ const useEventStore = create((set) => ({
 			],
 		}));
 	},
+	emptyAllEventAmount: () => {
+		set((state) => {
+			const updatedEvent = state.events.map((event) => {
+				return { ...event, amount: 0 };
+			});
+			console.log('EmptyAllEventAmount has been triggered!');
+			console.log(updatedEvent);
+
+			return { events: updatedEvent };
+		});
+	},
 	addEventAmount: (id, newAmount) => {
 		set((state) => {
 			const updatedEvent = state.events.map((oldEvent) => {
