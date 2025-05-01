@@ -17,7 +17,7 @@
 }
 
 .counter__btn {
-	flex: 1 1 auto;
+	width: 25%;
 	background: none;
 	color: white;
 	font-size: 2rem;
@@ -26,9 +26,9 @@
 }
 
 .counter__amount {
+	flex: 1;
 	font-size: 1.7rem;
 	padding: 0.8rem 0;
 	align-self: center;
 	text-align: center;
-	flex: 2 2 auto;
 }

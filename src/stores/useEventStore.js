@@ -29,6 +29,8 @@ const useEventStore = create((set) => ({
 			const updatedEvent = state.events.map((oldEvent) => {
 				if (oldEvent.id === id) {
 					return { ...oldEvent, amount: oldEvent.amount + 1 };
+				} else {
+					return { ...oldEvent };
 				}
 			});
 			return { events: updatedEvent };
@@ -39,6 +41,8 @@ const useEventStore = create((set) => ({
 			const updatedEvent = state.events.map((oldEvent) => {
 				if (oldEvent.id === id && oldEvent.amount > 0) {
 					return { ...oldEvent, amount: oldEvent.amount - 1 };
+				} else {
+					return { ...oldEvent };
 				}
 			});
 			return { events: updatedEvent };

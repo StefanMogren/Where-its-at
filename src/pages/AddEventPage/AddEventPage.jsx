@@ -5,12 +5,13 @@ import TimeFromTo from '../../components/TimeFromTo/TimeFromTo';
 import TicketCounter from '../../components/TicketCounter/TicketCounter';
 
 function AddEventPage() {
-	const { events, setEvents } = useEventStore();
+	const { events } = useEventStore();
 	const { id } = useParams();
-	console.log('The id is ' + id);
+	console.log('useParams id är ' + id);
+	console.log('events innan currentEvent är');
+	console.log(events);
 
 	const currentEvent = events.find((event) => event.id === id);
-	console.log(events);
 
 	const {
 		name,
@@ -23,10 +24,13 @@ function AddEventPage() {
 	return (
 		<section className='wrapper'>
 			<main className='add-event-page'>
+				{/* --- Sidinfo --- */}
 				<h1 className='add-event-page__title'>Event</h1>
 				<p className='add-event-page__subtitle'>
 					You are about to score some tickets to
 				</p>
+
+				{/* --- Eventinfo --- */}
 				<section className='add-event-page__info'>
 					<h2 className='add-event-page__event-title'>{name}</h2>
 					<p className='add-event-page__date'>
@@ -34,8 +38,12 @@ function AddEventPage() {
 					</p>
 					<p className='add-event-page__location'>@ {where}</p>
 				</section>
-				<TicketCounter amount={amount}>
-					<h2>{amount * price} sek</h2>
+
+				{/* --- Räknaren, pris, antal --- */}
+				<TicketCounter amount={amount} id={id}>
+					<h2 className='add-event-page__cost'>
+						{amount * price} sek
+					</h2>
 				</TicketCounter>
 			</main>
 		</section>
