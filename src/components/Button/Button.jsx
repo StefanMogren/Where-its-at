@@ -1,12 +1,13 @@
 import './button.css';
 import useEventStore from '../../stores/useEventStore';
 
-function Button({ amount, id, children }) {
+function Button({ amount, resetAmount, id, children }) {
 	const { events, addEventAmount } = useEventStore();
 
 	const addToBasket = () => {
 		addEventAmount(id, amount);
 		console.log(events);
+		resetAmount(0);
 	};
 
 	return (

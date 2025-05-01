@@ -21,6 +21,8 @@ function TicketCounter({ amount, increaseAmount, decreaseAmount, children }) {
 			<button className='counter__btn' onClick={() => decrease()}>
 				<FontAwesomeIcon icon={faMinus} />
 			</button>
+
+			{/* --- Antalet biljetter --- */}
 			<span className='counter__amount'>{amount}</span>
 			<button className='counter__btn' onClick={() => increase()}>
 				<FontAwesomeIcon icon={faPlus} />

@@ -54,7 +54,10 @@ function AddEventPage() {
 				</TicketCounter>
 
 				{/* --- Lägg till-knappen --- */}
-				<Button amount={numberOfTickets} id={id}>
+				<Button
+					amount={numberOfTickets}
+					resetAmount={setNumberOfTickets}
+					id={id}>
 					Lägg i varukorgen
 				</Button>
 			</main>
