@@ -1,0 +1,31 @@
+.basket {
+	width: 35px;
+	height: 35px;
+	margin-right: 0.8rem;
+	position: absolute;
+	border: none;
+	cursor: pointer;
+	background: none;
+	align-self: flex-end;
+
+	svg {
+		height: 100%;
+	}
+}
+
+.basket__count {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: -7px;
+	right: -15px;
+	color: var(--teal);
+	font-size: 1rem;
+	font-weight: 700;
+	background-color: var(--primary-bg);
+	border: 1px solid var(--teal);
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}

@@ -5,6 +5,7 @@ import Button from '../../components/Button/Button';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import './addEventPage.css';
+import Basket from '../../components/Basket/Basket';
 // import { number } from 'framer-motion';
 
 function AddEventPage() {
@@ -26,6 +27,7 @@ function AddEventPage() {
 		<section className='wrapper'>
 			<main className='add-event-page'>
 				{/* --- Sidinfo --- */}
+				<Basket />
 				<h1 className='add-event-page__title'>Event</h1>
 				<p className='add-event-page__subtitle'>
 					You are about to score some tickets to

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import './eventsPage.css';
 import useEventStore from '../../stores/useEventStore';
+import Basket from '../../components/Basket/Basket';
 
 function EventsPage() {
 	const { events } = useEventStore();
@@ -10,6 +11,7 @@ function EventsPage() {
 	return (
 		<section className='wrapper'>
 			<main className='events-page'>
+				<Basket />
 				<h1 className='events-page__title'>Events</h1>
 				<label className='events-page__search' htmlFor='eventSearch'>
 					<FontAwesomeIcon
