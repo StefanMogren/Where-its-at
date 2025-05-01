@@ -2,6 +2,7 @@ import './addEventPage.css';
 import useEventStore from '../../stores/useEventStore';
 import { useParams } from 'react-router-dom';
 import TimeFromTo from '../../components/TimeFromTo/TimeFromTo';
+import TicketCounter from '../../components/TicketCounter/TicketCounter';
 
 function AddEventPage() {
 	const { events, setEvents } = useEventStore();
@@ -14,6 +15,7 @@ function AddEventPage() {
 	const {
 		name,
 		price,
+		amount,
 		when: { date, from, to },
 		where,
 	} = currentEvent;
@@ -32,6 +34,9 @@ function AddEventPage() {
 					</p>
 					<p className='add-event-page__location'>@ {where}</p>
 				</section>
+				<TicketCounter amount={amount}>
+					<h2>{amount * price} sek</h2>
+				</TicketCounter>
 			</main>
 		</section>
 	);

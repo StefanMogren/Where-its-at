@@ -1,0 +1,34 @@
+.counter {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1px;
+	border: 2px solid var(--pink);
+	border-radius: 3px;
+	background-color: var(--pink);
+
+	* {
+		background-color: var(--primary-bg);
+	}
+}
+
+.counter__info {
+	width: 100%;
+}
+
+.counter__btn {
+	flex: 1 1 auto;
+	background: none;
+	color: white;
+	font-size: 2rem;
+	background-color: var(--primary-bg);
+	border: none;
+}
+
+.counter__amount {
+	font-size: 1.7rem;
+	padding: 0.8rem 0;
+	align-self: center;
+	text-align: center;
+	flex: 2 2 auto;
+}
