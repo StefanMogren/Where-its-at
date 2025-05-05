@@ -1,11 +1,9 @@
 .ticket {
 	width: 100%;
-	background-color: white;
-	border-radius: 3px;
+	flex-direction: column;
 
-	section {
-		padding: 0.5rem 1rem;
-	}
+	border-radius: 3px;
+	background-color: white;
 
 	h2 {
 		color: #00000066;
@@ -14,19 +12,45 @@
 }
 
 .ticket__what {
+	padding: 0.5rem 1rem;
+}
+.ticket__where {
+	border-top: var(--ticket-dash);
+
+	padding: 0.5rem 1rem;
+}
+
+.ticket__date-time {
+	display: flex;
+	flex-direction: row;
+	border-top: var(--ticket-dash);
+
+	section {
+		padding: 0.5rem 1rem;
+		flex: 1;
+	}
+
+	p {
+		padding-top: 0.6rem;
+		font-weight: 600;
+	}
+}
+.ticket__when {
+}
+
+.ticket__from {
+	border-left: var(--ticket-dash);
+	border-right: var(--ticket-dash);
 }
 
 .ticket__title {
+	font-family: 'Sansita';
+	font-size: 1.5rem;
+	font-weight: 800;
 	font-style: italic;
 	color: var(--pink);
 }
 
-/* 
-	--ticket-shadow-3: rgba(0, 0, 0, 0.03);
-	--ticket-shadow-6: rgba(0, 0, 0, 0.06);
-	--ticket-shadow-9: rgba(0, 0, 0, 0.09);
-	--ticket-shadow-12: rgba(0, 0, 0, 0.12);
- */
 .ticket__where {
 	background-color: var(--ticket-shadow-3);
 }
@@ -39,6 +63,7 @@
 
 .ticket__info {
 	background-color: var(--ticket-shadow-9);
+	border-top: var(--ticket-dash);
 }
 
 .ticket__identifier {
@@ -46,7 +71,7 @@
 	text-align: center;
 
 	.ticket__barcode {
-		margin-top: 1.5rem;
+		padding-top: 1.5rem;
 		margin-bottom: -1.5rem;
 		/* transform: scale(1, -1); */
 		align-items: flex-end;
