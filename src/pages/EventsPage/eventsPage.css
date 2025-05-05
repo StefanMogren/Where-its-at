@@ -30,6 +30,7 @@
 .events-page__event-container {
 	display: flex;
 	flex-direction: column;
+	list-style-type: none;
 	gap: 0.8rem;
 	width: 100%;
 }
