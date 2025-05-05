@@ -3,44 +3,18 @@
 	flex-direction: column;
 
 	border-radius: 3px;
+	overflow: hidden;
 	background-color: white;
 
 	h2 {
 		color: #00000066;
 		font-size: 0.7rem;
+		padding-bottom: 0.6rem;
 	}
 }
 
 .ticket__what {
 	padding: 0.5rem 1rem;
-}
-.ticket__where {
-	border-top: var(--ticket-dash);
-
-	padding: 0.5rem 1rem;
-}
-
-.ticket__date-time {
-	display: flex;
-	flex-direction: row;
-	border-top: var(--ticket-dash);
-
-	section {
-		padding: 0.5rem 1rem;
-		flex: 1;
-	}
-
-	p {
-		padding-top: 0.6rem;
-		font-weight: 600;
-	}
-}
-.ticket__when {
-}
-
-.ticket__from {
-	border-left: var(--ticket-dash);
-	border-right: var(--ticket-dash);
 }
 
 .ticket__title {
@@ -52,21 +26,40 @@
 }
 
 .ticket__where {
+	padding: 0.5rem 1rem;
+	border-top: var(--ticket-dash);
 	background-color: var(--ticket-shadow-3);
 }
 
 .ticket__date-time {
 	display: flex;
 	flex-direction: row;
+	border-top: var(--ticket-dash);
 	background-color: var(--ticket-shadow-6);
+	section {
+		padding: 0.5rem 1rem;
+		flex: 1;
+	}
+
+	p {
+		font-weight: 600;
+	}
+}
+.ticket__from {
+	border-left: var(--ticket-dash);
+	border-right: var(--ticket-dash);
 }
 
 .ticket__info {
+	padding: 0.5rem 1rem;
+
 	background-color: var(--ticket-shadow-9);
 	border-top: var(--ticket-dash);
 }
 
 .ticket__identifier {
+	padding: 0.5rem 1rem;
+
 	background-color: var(--ticket-shadow-12);
 	text-align: center;
 
