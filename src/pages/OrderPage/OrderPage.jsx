@@ -4,6 +4,7 @@ import useTicketStore from '../../stores/useTicketStore';
 import TicketCounter from '../../components/TicketCounter/TicketCounter';
 import TimeFromTo from '../../components/TimeFromTo/TimeFromTo';
 import Button from '../../components/Button/Button';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 function OrderPage() {
@@ -30,13 +31,20 @@ function OrderPage() {
 	// Funktion för "Skicka order"-knappen
 	// Skickar in alla events med amount > 0 till useTicketStore.
 	// Sätter alla events amount till 0 i useEventStore.
+	const navigate = useNavigate();
 	const purchaseTickets = () => {
 		events.forEach((event) => {
 			if (event.amount > 0) {
 				addTicket(event);
 			}
 		});
+
+		//Töm useEventStore
 		emptyAllEventAmount();
+
+		// Gå till /tickets sidan
+		const path = '/tickets';
+		navigate(path);
 	};
 	console.log(tickets);
 
