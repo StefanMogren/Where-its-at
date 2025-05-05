@@ -30,12 +30,18 @@ function OrderPage() {
 
 	// Funktion för "Skicka order"-knappen
 	// Skickar in alla events med amount > 0 till useTicketStore.
-	// Sätter alla events amount till 0 i useEventStore.
+	// Ger varje ticket en slumpmässig sektion och säte att utgå från
+	// Sätter alla useEventStore amount till 0.
 	const navigate = useNavigate();
 	const purchaseTickets = () => {
 		events.forEach((event) => {
 			if (event.amount > 0) {
-				addTicket(event);
+				const letterIndex = Math.floor(Math.random() * 26) + 65;
+				const randomSection = String.fromCharCode(letterIndex);
+
+				const randomSeat = Math.floor(Math.random() * 500) + 1;
+
+				addTicket(event, randomSection, randomSeat);
 			}
 		});
 
