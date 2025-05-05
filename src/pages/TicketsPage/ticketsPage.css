@@ -1,0 +1,12 @@
+.wrapper {
+	background: linear-gradient(
+		var(--pink),
+		var(--primary-bg),
+		var(--primary-bg),
+		var(--primary-bg)
+	);
+}
+
+.tickets-page {
+	width: 100%;
+}
