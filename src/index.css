@@ -21,7 +21,7 @@
 }
 
 .wrapper {
-	height: 667px;
+	min-height: 667px;
 	max-width: 375px;
 	margin: auto;
 	padding: 1.5rem;

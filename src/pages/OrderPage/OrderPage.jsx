@@ -15,9 +15,10 @@ function OrderPage() {
 	} = useEventStore();
 	const { tickets, addTicket } = useTicketStore();
 
+	// Lokal useState för den totala kostnaden.
 	const [totalCost, setTotalCost] = useState(0);
 
-	// Kontrollerar hur mycket den totala kostnaden är
+	// Varje gång events från useEventStore uppdateras (när amount ändras) så sätts den totala kostnaden
 	useEffect(() => {
 		let totalCost = 0;
 		events.forEach((event) => {
@@ -26,6 +27,9 @@ function OrderPage() {
 		setTotalCost(totalCost);
 	}, [events]);
 
+	// Funktion för "Skicka order"-knappen
+	// Skickar in alla events med amount > 0 till useTicketStore.
+	// Sätter alla events amount till 0 i useEventStore.
 	const purchaseTickets = () => {
 		events.forEach((event) => {
 			if (event.amount > 0) {
@@ -45,6 +49,7 @@ function OrderPage() {
 				{events.map((event) => {
 					if (event.amount > 0) {
 						return (
+							// --- TicketCounter ---
 							<TicketCounter
 								key={event.id}
 								amount={event.amount}
@@ -54,12 +59,12 @@ function OrderPage() {
 								decreaseAmount={() =>
 									decreaseEventAmount(event.id)
 								}>
-								{/* --- Eventnamnet --- */}
+								{/* --- Eventnamnet, wrappat av TicketCounter --- */}
 								<h2 className='order-page__event-title'>
 									{event.name}
 								</h2>
 
-								{/* --- Datumet och tiden */}
+								{/* --- Datumet och tiden, wrappat av TicketCounter */}
 								<p className='order-page__event-info'>
 									{event.when.date}{' '}
 									<TimeFromTo

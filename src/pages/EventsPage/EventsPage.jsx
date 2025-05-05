@@ -11,8 +11,12 @@ function EventsPage() {
 	return (
 		<section className='wrapper'>
 			<main className='events-page'>
+				{/* --- biljettikonen som varukorg --- */}
 				<Basket />
+
 				<h1 className='events-page__title'>Events</h1>
+
+				{/* --- Sökfältet --- */}
 				<label className='events-page__search' htmlFor='eventSearch'>
 					<FontAwesomeIcon
 						className='events-page__icon'
@@ -23,6 +27,7 @@ function EventsPage() {
 					<input type='search' name='eventSearch' id='eventSearch' />
 				</label>
 
+				{/* ---Listan med events --- */}
 				<ul className='events-page__event-container'>
 					{events.map((event) => (
 						<EventItem event={event} key={event.id} />
