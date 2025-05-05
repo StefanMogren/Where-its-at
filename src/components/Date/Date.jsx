@@ -1,4 +1,4 @@
-function Date({ when }) {
+function Date({ when, shorten }) {
 	// Delar upp dagen och månaden i två värden
 	let dateArray = when.split(' ');
 
@@ -65,7 +65,8 @@ function Date({ when }) {
 
 	return (
 		<time dateTime={fullDate()}>
-			<span>{date}</span> <span>{month.slice(0, 3)}</span>
+			<span>{date}</span>{' '}
+			<span>{shorten ? month.slice(0, 3) : month}</span>
 		</time>
 	);
 }

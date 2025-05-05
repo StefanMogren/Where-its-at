@@ -29,7 +29,10 @@ function Ticket({ event }) {
 							<section className='ticket__when'>
 								<h2>WHEN</h2>
 								<p>
-									<Date when={event.when.date} />
+									<Date
+										when={event.when.date}
+										shorten={false}
+									/>
 								</p>
 							</section>
 							<section className='ticket__from'>

@@ -2,10 +2,11 @@ import './orderPage.css';
 import useEventStore from '../../stores/useEventStore';
 import useTicketStore from '../../stores/useTicketStore';
 import TicketCounter from '../../components/TicketCounter/TicketCounter';
-import TimeFromTo from '../../components/TimeFromTo/TimeFromTo';
+import Time from '../../components/Time/Time';
 import Button from '../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Date from '../../components/Date/Date';
 
 function OrderPage() {
 	const {
@@ -80,11 +81,14 @@ function OrderPage() {
 
 								{/* --- Datumet och tiden, wrappat av TicketCounter */}
 								<p className='order-page__event-info'>
-									{event.when.date}{' '}
-									<TimeFromTo
-										from={event.when.from}
-										to={event.when.to}
+									<Date
+										when={event.when.date}
+										shorten={false}
 									/>
+									{' kl '}
+									<Time time={event.when.from} />
+									{' - '}
+									<Time time={event.when.to} />
 								</p>
 							</TicketCounter>
 						);

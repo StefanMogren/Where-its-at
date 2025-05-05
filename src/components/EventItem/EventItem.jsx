@@ -1,5 +1,5 @@
 import './eventItem.css';
-import TimeFromTo from '../TimeFromTo/TimeFromTo';
+import Time from '../Time/Time';
 import Date from '../Date/Date';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ function EventItem({ event }) {
 			<Link className='event-item' to={`/add-event/${id}`}>
 				{/* --- Datum --- */}
 				<div className='event-item__date'>
-					<Date when={date} />
+					<Date when={date} shorten={true} />
 				</div>
 
 				{/* --- Behållare för titel, plats, tid, pris --- */}
@@ -29,7 +29,7 @@ function EventItem({ event }) {
 						<div className='event-item__inner-details'>
 							<p className='event-item__location'>{where}</p>
 							<p className='event-item__time'>
-								<TimeFromTo from={from} to={to} />
+								<Time time={from} /> - <Time time={to} />
 							</p>
 						</div>
 
