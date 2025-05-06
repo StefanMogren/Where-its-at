@@ -2,6 +2,8 @@ import Ticket from '../../components/Ticket/Ticket';
 import './ticketsPage.css';
 import useTicketStore from '../../stores/useTicketStore';
 
+// import 'swiper/css/bundle';
+
 function TicketsPage() {
 	const { tickets } = useTicketStore();
 	console.log('Tickets are');
@@ -11,9 +13,24 @@ function TicketsPage() {
 	return (
 		<section className='wrapper gradient'>
 			<main className='tickets-page'>
-				{tickets.map((ticket) => {
-					return <Ticket ticket={ticket} key={ticket.ticketID} />;
-				})}
+				<swiper-container
+					grab-cursor='true'
+					effect='cards'
+					direction='vertical'
+					cards-effect='{
+						"perSlideOffset": 8,
+						"rotate": false
+
+					}'
+					className='mySwiper'>
+					{tickets.map((ticket) => {
+						return (
+							<swiper-slide key={ticket.ticketID}>
+								<Ticket ticket={ticket} />
+							</swiper-slide>
+						);
+					})}
+				</swiper-container>
 			</main>
 		</section>
 	);
