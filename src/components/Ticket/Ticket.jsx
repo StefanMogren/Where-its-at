@@ -1,4 +1,5 @@
 import Date from '../Date/Date';
+import Time from '../Time/Time';
 import './ticket.css';
 
 function Ticket({ ticket }) {
@@ -29,13 +30,17 @@ function Ticket({ ticket }) {
 				{/* --- Tiden från --- */}
 				<section className='ticket__from'>
 					<h2>FROM</h2>
-					<p>{when.from}</p>
+					<p>
+						<Time time={when.from} />
+					</p>
 				</section>
 
 				{/* --- Tiden till --- */}
 				<section className='ticket__to'>
 					<h2>TO</h2>
-					<p>{when.to}</p>
+					<p>
+						<Time time={when.to} />
+					</p>
 				</section>
 			</section>
 
