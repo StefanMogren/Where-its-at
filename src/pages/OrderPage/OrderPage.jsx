@@ -7,6 +7,7 @@ import Button from '../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Date from '../../components/Date/Date';
+import generateTicketID from '../../utils/generateTicketID';
 
 function OrderPage() {
 	const {
@@ -41,8 +42,11 @@ function OrderPage() {
 				const randomSection = String.fromCharCode(letterIndex);
 
 				const randomSeat = Math.floor(Math.random() * 500) + 1;
+				for (let i = 0; i < event.amount; i++) {
+					const seat = randomSeat + i;
 
-				addTicket(event, randomSection, randomSeat);
+					addTicket(event, randomSection, seat, generateTicketID());
+				}
 			}
 		});
 

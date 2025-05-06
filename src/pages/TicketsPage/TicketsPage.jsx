@@ -12,18 +12,7 @@ function TicketsPage() {
 		<section className='wrapper gradient'>
 			<main className='tickets-page'>
 				{tickets.map((event) => {
-					const adjacentSeats = [];
-					for (let i = 0; i < event.amount; i++) {
-						const seat = event.seat + i;
-						adjacentSeats.push(
-							<Ticket
-								event={event}
-								seat={seat}
-								key={event.section + seat}
-							/>
-						);
-					}
-					return adjacentSeats;
+					return <Ticket event={event} key={event.ticketID} />;
 				})}
 			</main>
 		</section>

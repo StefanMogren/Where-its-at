@@ -1,22 +1,7 @@
 import Date from '../Date/Date';
 import './ticket.css';
-import randLargeLetter from '../../utils/randLargeLetter';
-import randNumber from '../../utils/randNumber';
 
 function Ticket({ event, seat }) {
-	// Får fram en slumpmässig kombination av siffror och stora bokstäver för biljettID
-	let ticketID = '#';
-	for (let i = 0; i < 5; i++) {
-		const letterOrNumber = Math.random();
-		console.log(letterOrNumber);
-
-		if (letterOrNumber > 0.5) {
-			ticketID += randLargeLetter();
-		} else {
-			ticketID += randNumber();
-		}
-	}
-
 	return (
 		<article className='ticket'>
 			{/* --- Eventets namn --- */}
@@ -57,14 +42,14 @@ function Ticket({ event, seat }) {
 			<section className='ticket__info'>
 				<h2>INFO</h2>
 				<p>
-					Section {event.section} - seat {seat}{' '}
+					Section {event.section} - seat {event.seat}
 				</p>
 			</section>
 
 			{/* --- Streckkod och biljettID --- */}
 			<section className='ticket__identifier'>
-				<h2 className='ticket__barcode'>{ticketID}</h2>
-				<p className='ticket__id'>{ticketID}</p>
+				<h2 className='ticket__barcode'>{event.ticketID}</h2>
+				<p className='ticket__id'>{event.ticketID}</p>
 			</section>
 		</article>
 	);
