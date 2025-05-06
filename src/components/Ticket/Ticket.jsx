@@ -47,7 +47,7 @@ function Ticket({ ticket }) {
 			{/* --- Sittplatsen --- */}
 			<section className='ticket__info'>
 				<h2>INFO</h2>
-				<p>
+				<p className='ticket__seat'>
 					Section {section} - seat {seat}
 				</p>
 			</section>
