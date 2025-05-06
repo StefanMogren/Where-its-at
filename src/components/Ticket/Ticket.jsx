@@ -1,11 +1,20 @@
 import Date from '../Date/Date';
 import './ticket.css';
 import randLargeLetter from '../../utils/randLargeLetter';
+import randNumber from '../../utils/randNumber';
 
 function Ticket({ event, seat }) {
+	// Får fram en slumpmässig kombination av siffror och stora bokstäver för biljettID
 	let ticketID = '#';
 	for (let i = 0; i < 5; i++) {
-		ticketID += randLargeLetter();
+		const letterOrNumber = Math.random();
+		console.log(letterOrNumber);
+
+		if (letterOrNumber > 0.5) {
+			ticketID += randLargeLetter();
+		} else {
+			ticketID += randNumber();
+		}
 	}
 
 	return (
