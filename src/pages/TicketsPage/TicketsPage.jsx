@@ -11,8 +11,8 @@ function TicketsPage() {
 	return (
 		<section className='wrapper gradient'>
 			<main className='tickets-page'>
-				{tickets.map((event) => {
-					return <Ticket event={event} key={event.ticketID} />;
+				{tickets.map((ticket) => {
+					return <Ticket ticket={ticket} key={ticket.ticketID} />;
 				})}
 			</main>
 		</section>
