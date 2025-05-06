@@ -1,7 +1,13 @@
 import Date from '../Date/Date';
 import './ticket.css';
+import randLargeLetter from '../../utils/randLargeLetter';
 
 function Ticket({ event, seat }) {
+	let ticketID = '#';
+	for (let i = 0; i < 5; i++) {
+		ticketID += randLargeLetter();
+	}
+
 	return (
 		<article className='ticket'>
 			<section className='ticket__what'>
@@ -39,8 +45,8 @@ function Ticket({ event, seat }) {
 			</section>
 
 			<section className='ticket__identifier'>
-				<h2 className='ticket__barcode'>#A2ED7</h2>
-				<p className='ticket__id'>#A2ED7</p>
+				<h2 className='ticket__barcode'>{ticketID}</h2>
+				<p className='ticket__id'>{ticketID}</p>
 			</section>
 		</article>
 	);
