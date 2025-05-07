@@ -33,3 +33,12 @@
 	font-size: 2rem;
 	text-shadow: 1px 1px var(--pink);
 }
+
+.order-page__no-orders {
+	width: 200px;
+	font-size: 1.2rem;
+	font-weight: 400;
+	color: white;
+	font-style: italic;
+	text-align: center;
+}
