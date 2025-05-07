@@ -20,6 +20,7 @@ function Orders() {
 
 	const [totalCost, setTotalCost] = useState(0);
 
+	// Uppdaterar den totala kostnaden varje gång events uppdateras
 	useEffect(() => {
 		let totalCost = 0;
 		events.forEach((event) => {
@@ -28,6 +29,9 @@ function Orders() {
 		setTotalCost(totalCost);
 	}, [events]);
 
+	// Går igenom varje event med amount > 0
+	// Skapar biljetter till useTicketStore baserat på amount för varje event
+	// Ger varje biljett en slumpmässig sektion, säte och ID
 	const navigate = useNavigate();
 	const purchaseTickets = () => {
 		events.forEach((event) => {
@@ -56,6 +60,7 @@ function Orders() {
 
 	return (
 		<>
+			{/* --- Varje event med amount > 0 får en TicketCounter --- */}
 			{events.map((event) => {
 				if (event.amount > 0) {
 					return (

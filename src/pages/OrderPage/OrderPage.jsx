@@ -15,7 +15,7 @@ function OrderPage() {
 					<h1 className='order-page__title'>Order</h1>
 				</header>
 
-				{/* --- Varje event med amount > 0 får en TicketCounter */}
+				{/* --- Kontrollerar ifall det finns något event med amount > 0 --- */}
 				{events.find((event) => event.amount > 0) ? (
 					<Orders />
 				) : (
