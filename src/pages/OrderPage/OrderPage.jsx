@@ -42,7 +42,7 @@ function OrderPage() {
 				const letterIndex = Math.floor(Math.random() * 26) + 65;
 				const randomSection = String.fromCharCode(letterIndex);
 
-				const randomSeat = Math.floor(Math.random() * 500) + 1;
+				const randomSeat = Math.floor(Math.random() * 300) + 1;
 				for (let i = 0; i < event.amount; i++) {
 					const seat = randomSeat + i;
 
