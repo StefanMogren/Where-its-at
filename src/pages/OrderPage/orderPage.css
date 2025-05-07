@@ -36,9 +36,9 @@
 
 .order-page__no-orders {
 	width: 200px;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	font-weight: 400;
-	color: white;
+	color: #ffffffcc;
 	font-style: italic;
 	text-align: center;
 }
