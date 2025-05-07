@@ -6,6 +6,10 @@
 	align-items: center;
 }
 
+.events-page__title {
+	grid-column: 2;
+}
+
 .events-page__search {
 	width: 100%;
 	display: flex;

@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Date from '../../components/Date/Date';
 import generateTicketID from '../../utils/generateTicketID';
+import NavigateBack from '../../components/NavigateBack/NavigateBack';
 
 function OrderPage() {
 	const {
@@ -62,7 +63,10 @@ function OrderPage() {
 	return (
 		<section className='wrapper'>
 			<main className='order-page'>
-				<h1 className='order-page__title'>Order</h1>
+				<header>
+					<NavigateBack />
+					<h1 className='order-page__title'>Order</h1>
+				</header>
 
 				{/* --- Varje event med amount > 0 får en TicketCounter */}
 				{events.map((event) => {

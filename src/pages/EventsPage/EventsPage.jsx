@@ -12,9 +12,10 @@ function EventsPage() {
 		<section className='wrapper'>
 			<main className='events-page'>
 				{/* --- biljettikonen som varukorg --- */}
-				<Basket />
-
-				<h1 className='events-page__title'>Events</h1>
+				<header>
+					<h1 className='events-page__title'>Events</h1>
+					<Basket />
+				</header>
 
 				{/* --- Sökfältet --- */}
 				<label className='events-page__search' htmlFor='eventSearch'>

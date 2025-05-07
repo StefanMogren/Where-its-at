@@ -40,3 +40,10 @@ h1 {
 	font-weight: 600;
 	font-family: 'Sansita', sans-serif;
 }
+
+header {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	text-align: center;
+}

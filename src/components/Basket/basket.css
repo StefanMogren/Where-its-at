@@ -1,12 +1,12 @@
 .basket {
 	width: 35px;
 	height: 35px;
+	position: relative;
 	margin-right: 0.8rem;
-	position: absolute;
 	border: none;
 	cursor: pointer;
 	background: none;
-	align-self: flex-end;
+	justify-self: flex-end;
 
 	svg {
 		height: 100%;

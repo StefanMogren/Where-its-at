@@ -1,0 +1,11 @@
+.navigate-btn {
+	background: none;
+	color: var(--teal);
+	border: none;
+	cursor: pointer;
+	justify-self: flex-start;
+}
+
+.navigate-btn__icon {
+	height: 2rem;
+}

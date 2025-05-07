@@ -7,6 +7,7 @@ import { useState } from 'react';
 import './addEventPage.css';
 import Basket from '../../components/Basket/Basket';
 import Date from '../../components/Date/Date';
+import NavigateBack from '../../components/NavigateBack/NavigateBack';
 // import { number } from 'framer-motion';
 
 function AddEventPage() {
@@ -35,8 +36,11 @@ function AddEventPage() {
 		<section className='wrapper'>
 			<main className='add-event-page'>
 				{/* --- Sidinfo --- */}
-				<Basket />
-				<h1 className='add-event-page__title'>Event</h1>
+				<header>
+					<NavigateBack />
+					<h1 className='add-event-page__title'>Event</h1>
+					<Basket />
+				</header>
 				<p className='add-event-page__subtitle'>
 					You are about to score some tickets to
 				</p>
