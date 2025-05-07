@@ -53,7 +53,3 @@ header {
 	width: 12px;
 	background: var(--pink);
 }
-
-.swiper-pagination-bullet-active {
-	background: var(--pink);
-}
