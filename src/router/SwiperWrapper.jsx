@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import 'swiper/css';
+import 'swiper/css/pagination';
 
 import HomePage from '../pages/HomePage/HomePage';
 import EventsPage from '../pages/EventsPage/EventsPage';
@@ -63,7 +64,8 @@ const SwiperWrapper = () => {
 		<Swiper
 			onSwiper={(swiper) => (swiperRef.current = swiper)}
 			onSlideChange={handleSlideChange}
-			allowTouchMove={true}>
+			allowTouchMove={true}
+			pagination={{ clickable: false }}>
 			<SwiperSlide>
 				<HomePage />
 			</SwiperSlide>
