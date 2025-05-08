@@ -16,4 +16,5 @@
 
 .error-page__link {
 	color: var(--teal);
+	width: 100%;
 }

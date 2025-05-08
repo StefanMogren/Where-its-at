@@ -1,6 +1,7 @@
 import React from 'react';
 import './errorPage.css';
 import { Link } from 'react-router-dom';
+import Button from '../../components/Button/Button';
 
 function ErrorPage() {
 	return (
@@ -11,7 +12,9 @@ function ErrorPage() {
 					Hoppsan! Den här sidan verkar inte existera
 				</h2>
 				<Link className='error-page__link' to={'/events'}>
-					Klicka här för att gå tillbaka till eventssidan
+					<Button>
+						Klicka här för att gå tillbaka till eventssidan
+					</Button>
 				</Link>
 			</main>
 		</section>
