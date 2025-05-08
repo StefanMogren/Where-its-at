@@ -1,12 +1,12 @@
 import useEventStore from '../../stores/useEventStore';
 import useTicketStore from '../../stores/useTicketStore';
-import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
-import { useEffect, useState } from 'react';
+import generateTicketID from '../../utils/generateTicketID';
 import TicketCounter from '../../components/TicketCounter/TicketCounter';
 import Date from '../../components/Date/Date';
 import Time from '../Time/Time';
-import generateTicketID from '../../utils/generateTicketID';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function Orders() {
 	const {

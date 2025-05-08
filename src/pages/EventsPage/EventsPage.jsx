@@ -1,12 +1,12 @@
+import useEventStore from '../../stores/useEventStore';
+import useApiCheckStore from '../../stores/useApiCheckStore';
 import EventItem from '../../components/EventItem/EventItem';
+import Basket from '../../components/Basket/Basket';
+import ApiCheck from '../../components/ApiCheck/ApiCheck';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import './eventsPage.css';
-import useEventStore from '../../stores/useEventStore';
-import Basket from '../../components/Basket/Basket';
-import ApiCheck from '../../components/ApiCheck/ApiCheck';
-import useApiCheckStore from '../../stores/useApiCheckStore';
-import { useEffect, useState } from 'react';
 
 function EventsPage() {
 	const { events } = useEventStore();

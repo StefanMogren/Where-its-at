@@ -1,13 +1,13 @@
 import useEventStore from '../../stores/useEventStore';
-import TicketCounter from '../../components/TicketCounter/TicketCounter';
 import Time from '../../components/Time/Time';
 import Button from '../../components/Button/Button';
-import { useParams } from 'react-router-dom';
-import { useState } from 'react';
-import './addEventPage.css';
 import Basket from '../../components/Basket/Basket';
 import Date from '../../components/Date/Date';
 import NavigateBack from '../../components/NavigateBack/NavigateBack';
+import TicketCounter from '../../components/TicketCounter/TicketCounter';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import './addEventPage.css';
 // import { number } from 'framer-motion';
 
 function AddEventPage() {

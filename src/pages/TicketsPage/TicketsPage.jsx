@@ -1,8 +1,6 @@
 import Ticket from '../../components/Ticket/Ticket';
-import './ticketsPage.css';
 import useTicketStore from '../../stores/useTicketStore';
-
-// import 'swiper/css/bundle';
+import './ticketsPage.css';
 
 function TicketsPage() {
 	const { tickets } = useTicketStore();

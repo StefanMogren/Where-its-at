@@ -1,7 +1,7 @@
-import './eventItem.css';
 import Time from '../Time/Time';
 import Date from '../Date/Date';
 import { Link } from 'react-router-dom';
+import './eventItem.css';
 
 function EventItem({ event }) {
 	const {

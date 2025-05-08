@@ -1,8 +1,8 @@
-import './orderPage.css';
 import useEventStore from '../../stores/useEventStore';
 
 import NavigateBack from '../../components/NavigateBack/NavigateBack';
 import Orders from '../../components/Orders/Orders';
+import './orderPage.css';
 
 function OrderPage() {
 	const { events } = useEventStore();

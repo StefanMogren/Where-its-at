@@ -1,9 +1,9 @@
+import useEventStore from '../../stores/useEventStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTicket } from '@fortawesome/free-solid-svg-icons';
-import './basket.css';
-import useEventStore from '../../stores/useEventStore';
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import './basket.css';
 
 function Basket() {
 	const { events } = useEventStore();

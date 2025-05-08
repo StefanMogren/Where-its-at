@@ -1,7 +1,6 @@
-import React from 'react';
+import Button from '../../components/Button/Button';
 import './errorPage.css';
 import { Link } from 'react-router-dom';
-import Button from '../../components/Button/Button';
 
 function ErrorPage() {
 	return (

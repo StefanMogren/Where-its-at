@@ -1,6 +1,6 @@
-import './ticketCounter.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import './ticketCounter.css';
 
 function TicketCounter({ amount, increaseAmount, decreaseAmount, children }) {
 	const decrease = () => {

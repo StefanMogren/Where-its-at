@@ -1,5 +1,5 @@
-import './homePage.css';
 import logo from '../../assets/logo.png';
+import './homePage.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faFingerprint } from '@fortawesome/free-solid-svg-icons';
 
