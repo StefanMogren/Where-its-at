@@ -21,6 +21,7 @@ const indexToRoute = {
 };
 
 import useEventStore from '../stores/useEventStore';
+import useApiCheckStore from '../stores/useApiCheckStore';
 import { useFetchEvents } from '../hooks/useFetchEvents';
 
 const SwiperWrapper = () => {
@@ -50,6 +51,18 @@ const SwiperWrapper = () => {
 	// Saker för att hämta Eventdata från API
 	// Även förvara datan i useEventsStore
 	const { events: eventsAPI, isLoading, isError } = useFetchEvents();
+
+	const { setIsLoading, setIsError } = useApiCheckStore();
+
+	useEffect(() => {
+		setIsLoading(isLoading);
+	}, [isLoading]);
+
+	useEffect(() => {
+		setIsError(isError);
+		console.log(isError);
+	}, [isError]);
+
 	const { events, addNewEvent } = useEventStore();
 	useEffect(() => {
 		if (events.length === 0 && eventsAPI.length > 0) {
