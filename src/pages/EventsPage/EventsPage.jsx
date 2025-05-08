@@ -6,32 +6,28 @@ import useEventStore from '../../stores/useEventStore';
 import Basket from '../../components/Basket/Basket';
 import ApiCheck from '../../components/ApiCheck/ApiCheck';
 import useApiCheckStore from '../../stores/useApiCheckStore';
+import { useEffect, useState } from 'react';
 
 function EventsPage() {
 	const { events } = useEventStore();
 	const { isLoading, isError } = useApiCheckStore();
 
-	/* const apiCheck = () => {
-		if (isLoading) {
-			return <h2 className='api-message'>Hämtar events...</h2>;
-		} else if (isError) {
-			return (
-				<h2 className='api-message'>
-					Aj då. Det blev ett fel med hämtningen av events. Försök
-					igen senare.
-				</h2>
+	const [searchInput, setSearchInput] = useState('');
+	const [filteredEvents, setFilteredEvents] = useState('');
+
+	// Funktionalitet för sökfältet.
+	// Kollar vilka eventnamn som matchar sökimputen
+	useEffect(() => {
+		if (searchInput.length > 0) {
+			setFilteredEvents(
+				events.filter((event) =>
+					event.name.toLowerCase().includes(searchInput.toLowerCase())
+				)
 			);
-		} else if (events.length === 0) {
-			return (
-				<h2 className='api-message'>
-					Inga events finns tillgängliga just nu. Kom gärna igen och
-					se
-				</h2>
-			);
-		} else {
-			return false;
+		} else if (searchInput.length === 0) {
+			setFilteredEvents(events);
 		}
-	}; */
+	}, [events, searchInput]);
 
 	return (
 		<section className='wrapper'>
@@ -50,7 +46,12 @@ function EventsPage() {
 						style={{ color: '#FFFFFF33' }}
 						size='xl'
 					/>
-					<input type='search' name='eventSearch' id='eventSearch' />
+					<input
+						type='search'
+						name='eventSearch'
+						id='eventSearch'
+						onChange={(input) => setSearchInput(input.target.value)}
+					/>
 				</label>
 
 				{/* --- Kontroll ifall laddningen av API:et laddas eller har misslyckats --- */}
@@ -59,9 +60,10 @@ function EventsPage() {
 				) : (
 					/* --- Listan med events --- */
 					<ul className='events-page__event-container'>
-						{events.map((event) => (
-							<EventItem event={event} key={event.id} />
-						))}
+						{filteredEvents &&
+							filteredEvents.map((event) => (
+								<EventItem event={event} key={event.id} />
+							))}
 					</ul>
 				)}
 			</main>
