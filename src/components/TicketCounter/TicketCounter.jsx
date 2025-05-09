@@ -21,7 +21,10 @@ function TicketCounter({ amount, increaseAmount, decreaseAmount, children }) {
 			<div className='counter__info'>{children}</div>
 
 			{/* --- Minusknappen --- */}
-			<button className='counter__btn' onClick={() => decrease()}>
+			<button
+				className='counter__btn'
+				onClick={() => decrease()}
+				aria-label='minska antal'>
 				<FontAwesomeIcon icon={faMinus} />
 			</button>
 
@@ -29,7 +32,10 @@ function TicketCounter({ amount, increaseAmount, decreaseAmount, children }) {
 			<span className='counter__amount'>{amount}</span>
 
 			{/* --- Plusknappen --- */}
-			<button className='counter__btn' onClick={() => increase()}>
+			<button
+				className='counter__btn'
+				onClick={() => increase()}
+				aria-label='öka antal'>
 				<FontAwesomeIcon icon={faPlus} />
 			</button>
 		</section>

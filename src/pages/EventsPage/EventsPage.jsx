@@ -49,7 +49,10 @@ function EventsPage() {
 				</header>
 
 				{/* --- Sökfältet --- */}
-				<label className='events-page__search' htmlFor='eventSearch'>
+				<label
+					className='events-page__search'
+					htmlFor='eventSearch'
+					aria-label='sökfält'>
 					<FontAwesomeIcon
 						className='events-page__icon'
 						icon={faMagnifyingGlass}

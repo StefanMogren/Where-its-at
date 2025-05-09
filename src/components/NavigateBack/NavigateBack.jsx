@@ -8,7 +8,10 @@ function NavigateBack() {
 
 	return (
 		// --- Vänsterpil, navigera bakåt i historiken ---
-		<button className='navigate-btn' onClick={() => navigate(-1)}>
+		<button
+			className='navigate-btn'
+			onClick={() => navigate(-1)}
+			aria-label='gå bakåt'>
 			<FontAwesomeIcon
 				icon={faArrowLeft}
 				className='navigate-btn__icon'

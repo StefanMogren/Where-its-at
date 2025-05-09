@@ -28,7 +28,10 @@ function Basket() {
 	};
 
 	return (
-		<button className='basket' onClick={goToOrderPage}>
+		<button
+			className='basket'
+			onClick={goToOrderPage}
+			aria-label='varukorg'>
 			{/* --- Biljettikon --- */}
 			<FontAwesomeIcon icon={faTicket} style={{ color: `var(--pink)` }} />
 
