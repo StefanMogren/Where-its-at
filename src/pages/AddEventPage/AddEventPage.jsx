@@ -137,7 +137,8 @@ function AddEventPage() {
 							<section>
 								<p>
 									Hoppsan! Det här eventet verkar inte finnas
-									i vårat register.
+									i vårat register. Försök med ett annat
+									event.
 								</p>
 							</section>
 						)}
