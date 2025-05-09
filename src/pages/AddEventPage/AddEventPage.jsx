@@ -6,22 +6,33 @@ import Date from '../../components/Date/Date';
 import NavigateBack from '../../components/NavigateBack/NavigateBack';
 import TicketCounter from '../../components/TicketCounter/TicketCounter';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { motion } from 'motion/react';
 import './addEventPage.css';
-// import { number } from 'framer-motion';
+import { useFetchEvents } from '../../hooks/useFetchEvents';
+import useApiCheckStore from '../../stores/useApiCheckStore';
 
 function AddEventPage() {
-	const { events, addEventAmount } = useEventStore();
+	const { events, addNewEvent, addEventAmount } = useEventStore();
 	const { id } = useParams();
+	const [addedToBasketMsg, setAddedToBasketMsg] = useState(false);
 
-	const currentEvent = events.find((event) => event.id === id);
+	const { events: eventsAPI, isLoading, isError } = useFetchEvents();
+	const [currentEvent, setCurrentEvent] = useState(null);
 
-	const {
-		name,
-		price,
-		when: { date, from, to },
-		where,
-	} = currentEvent;
+	useEffect(() => {
+		if (events.length === 0 && eventsAPI.length > 0) {
+			eventsAPI.forEach((event) => addNewEvent(event));
+		}
+	}, [eventsAPI]);
+
+	useEffect(() => {
+		if (events.length > 0) {
+			setCurrentEvent(events.find((event) => event.id === id));
+		}
+	}, [events]);
+
+	const { name, price, when, where } = currentEvent ?? {};
 
 	const [numberOfTickets, setNumberOfTickets] = useState(1);
 
@@ -36,7 +47,7 @@ function AddEventPage() {
 		<section className='wrapper'>
 			<main className='add-event-page'>
 				{/* --- Sidinfo --- */}
-				<header>
+				<header className='add-event-page__header'>
 					<NavigateBack />
 					<h1 className='add-event-page__title'>Event</h1>
 					<Basket />
@@ -46,31 +57,41 @@ function AddEventPage() {
 				</p>
 
 				{/* --- Eventdetaljer --- */}
-				<section className='add-event-page__info'>
-					<h2 className='add-event-page__event-title'>{name}</h2>
-					<p className='add-event-page__date'>
-						<Date when={date} shorten={false} />
-						{' kl '}
-						<Time time={from} />
-						{' - '}
-						<Time time={to} />
-					</p>
-					<p className='add-event-page__location'>@ {where}</p>
-				</section>
+				{currentEvent && (
+					<>
+						<section className='add-event-page__info'>
+							<h2 className='add-event-page__event-title'>
+								{name}
+							</h2>
+							<p className='add-event-page__date'>
+								<Date when={when.date} shorten={false} />
+								{' kl '}
+								<Time time={when.from} />
+								{' - '}
+								<Time time={when.to} />
+							</p>
+							<p className='add-event-page__location'>
+								@ {where}
+							</p>
+						</section>
 
-				{/* --- Räknaren, pris, antal --- */}
-				<TicketCounter
-					amount={numberOfTickets}
-					increaseAmount={setNumberOfTickets}
-					decreaseAmount={setNumberOfTickets}>
-					{/* --- children inuti komponenten */}
-					<h2 className='add-event-page__cost'>
-						{numberOfTickets * price} sek
-					</h2>
-				</TicketCounter>
+						{/* --- Räknaren, pris, antal --- */}
+						<TicketCounter
+							amount={numberOfTickets}
+							increaseAmount={setNumberOfTickets}
+							decreaseAmount={setNumberOfTickets}>
+							{/* --- children inuti komponenten */}
+							<h2 className='add-event-page__cost'>
+								{numberOfTickets * price} sek
+							</h2>
+						</TicketCounter>
 
-				{/* --- Lägg till-knappen --- */}
-				<Button onClick={() => addToBasket()}>Lägg i varukorgen</Button>
+						{/* --- Lägg till-knappen --- */}
+						<Button onClick={() => addToBasket()}>
+							Lägg i varukorgen
+						</Button>
+					</>
+				)}
 			</main>
 		</section>
 	);
