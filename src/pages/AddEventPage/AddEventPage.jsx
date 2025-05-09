@@ -7,7 +7,7 @@ import NavigateBack from '../../components/NavigateBack/NavigateBack';
 import TicketCounter from '../../components/TicketCounter/TicketCounter';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import './addEventPage.css';
 import { useFetchEvents } from '../../hooks/useFetchEvents';
 import useApiCheckStore from '../../stores/useApiCheckStore';
@@ -15,7 +15,6 @@ import useApiCheckStore from '../../stores/useApiCheckStore';
 function AddEventPage() {
 	const { events, addNewEvent, addEventAmount } = useEventStore();
 	const { id } = useParams();
-	const [addedToBasketMsg, setAddedToBasketMsg] = useState(false);
 
 	const { events: eventsAPI, isLoading, isError } = useFetchEvents();
 	const [currentEvent, setCurrentEvent] = useState(null);
@@ -34,13 +33,25 @@ function AddEventPage() {
 
 	const { name, price, when, where } = currentEvent ?? {};
 
+	// Håller koll på antalet biljetter användaren är på väg att köpa
 	const [numberOfTickets, setNumberOfTickets] = useState(1);
 
+	// Kontroll för när animationen som poppar upp under varukorgen ska dyka upp.
+	const [animateMsg, setAnimateMsg] = useState(false);
+
 	// onClick-funktionen som skickas in i Button
+	// Lä
 	const addToBasket = () => {
-		addEventAmount(id, numberOfTickets);
-		console.log(events);
-		setNumberOfTickets(0);
+		if (numberOfTickets > 0) {
+			addEventAmount(id, numberOfTickets);
+			setNumberOfTickets(0);
+
+			// Animation för meddelandet som poppar upp under varukorgen.
+			setAnimateMsg(true);
+			setTimeout(() => {
+				setAnimateMsg(false);
+			}, 3000);
+		}
 	};
 
 	return (
@@ -51,6 +62,25 @@ function AddEventPage() {
 					<NavigateBack />
 					<h1 className='add-event-page__title'>Event</h1>
 					<Basket />
+
+					{/* --- Animation, meddelande att biljetter lagts i varukorg --- */}
+					<AnimatePresence>
+						{animateMsg && (
+							<motion.div
+								className='add-event-page__added-animation'
+								key='box'
+								initial={{ opacity: 0, scale: 0 }}
+								animate={{ opacity: 1, scale: 1 }}
+								exit={{ opacity: 0, scale: 0 }}
+								onHoverStart={() =>
+									console.log('hover started')
+								}>
+								Tickets added to basket
+								{/* --- Triangeln som pekar uppåt i meddelandet --- */}
+								<div className='add-event-page__added-arrow'></div>
+							</motion.div>
+						)}
+					</AnimatePresence>
 				</header>
 				<p className='add-event-page__subtitle'>
 					You are about to score some tickets to
@@ -60,9 +90,12 @@ function AddEventPage() {
 				{currentEvent && (
 					<>
 						<section className='add-event-page__info'>
+							{/* --- Eventnamn --- */}
 							<h2 className='add-event-page__event-title'>
 								{name}
 							</h2>
+
+							{/* --- Datum och tid --- */}
 							<p className='add-event-page__date'>
 								<Date when={when.date} shorten={false} />
 								{' kl '}
@@ -70,6 +103,8 @@ function AddEventPage() {
 								{' - '}
 								<Time time={when.to} />
 							</p>
+
+							{/* --- Plats --- */}
 							<p className='add-event-page__location'>
 								@ {where}
 							</p>
