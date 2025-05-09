@@ -11,7 +11,10 @@ function OrderPage() {
 		<section className='wrapper'>
 			<main className='order-page'>
 				<header>
+					{/* --- Ikon, navigera tillbaka --- */}
 					<NavigateBack />
+
+					{/* --- Sidtitel --- */}
 					<h1 className='order-page__title'>Order</h1>
 				</header>
 

@@ -23,7 +23,9 @@ export const Router = () => {
 
 	useEffect(() => {
 		setIsError(isError);
-		console.log(isError);
+		if (isError) {
+			console.log(isError);
+		}
 	}, [isError]);
 
 	// Kontroll för att lägga till API:ets events i sidans useEventStore bara ifall API:ets event är färdighämtade samt att de inte redan är tillagda.

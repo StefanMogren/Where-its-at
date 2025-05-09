@@ -5,7 +5,6 @@ const generateTicketID = () => {
 	let ticketID = '#';
 	for (let i = 0; i < 5; i++) {
 		const letterOrNumber = Math.random();
-		console.log(letterOrNumber);
 
 		if (letterOrNumber > 0.5) {
 			ticketID += randLargeLetter();

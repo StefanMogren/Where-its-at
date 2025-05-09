@@ -35,8 +35,7 @@ function AddEventPage() {
 	// Kontroll för när animationen som poppar upp under varukorgen ska dyka upp.
 	const [animateMsg, setAnimateMsg] = useState(false);
 
-	// onClick-funktionen som skickas in i Button
-	// Lä
+	// onClick-funktion för Button som lägger till antalet biljetter som användaren vill köpa i useEventStore.
 	const addToBasket = () => {
 		if (numberOfTickets > 0) {
 			addEventAmount(id, numberOfTickets);
@@ -55,8 +54,13 @@ function AddEventPage() {
 			<main className='add-event-page'>
 				{/* --- Sidinfo --- */}
 				<header className='add-event-page__header'>
+					{/* --- Ikon, navigera tillbaka --- */}
 					<NavigateBack />
+
+					{/* --- Sidtitel --- */}
 					<h1 className='add-event-page__title'>Event</h1>
+
+					{/* --- Varukorgen --- */}
 					<Basket />
 
 					{/* --- Animation, meddelande att biljetter lagts i varukorg --- */}
@@ -67,10 +71,7 @@ function AddEventPage() {
 								key='box'
 								initial={{ opacity: 0, scale: 0 }}
 								animate={{ opacity: 1, scale: 1 }}
-								exit={{ opacity: 0, scale: 0 }}
-								onHoverStart={() =>
-									console.log('hover started')
-								}>
+								exit={{ opacity: 0, scale: 0 }}>
 								Tickets added to basket
 								{/* --- Triangeln som pekar uppåt i meddelandet --- */}
 								<div className='add-event-page__added-arrow'></div>
@@ -132,6 +133,7 @@ function AddEventPage() {
 								</Button>
 							</>
 						) : (
+							// Errormeddelandet ifall ID i adressfältet inte stämmer med något event
 							<section>
 								<p>
 									Hoppsan! Det här eventet verkar inte finnas

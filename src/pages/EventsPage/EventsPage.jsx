@@ -10,8 +10,11 @@ import './eventsPage.css';
 
 function EventsPage() {
 	const { events } = useEventStore();
+
+	// Kontroller för ifall hämtningen av API:et fortfarande görs eller misslyckades.
 	const { isLoading, isError } = useApiCheckStore();
 
+	// useState för sökfunktionaliteten
 	const [searchInput, setSearchInput] = useState('');
 	const [filteredEvents, setFilteredEvents] = useState('');
 
@@ -21,6 +24,7 @@ function EventsPage() {
 		if (searchInput.length > 0) {
 			setFilteredEvents(
 				events.filter((event) =>
+					// Ser till så både söknamnet och eventnamnet matchar mot små bokstäver
 					event.name.toLowerCase().includes(searchInput.toLowerCase())
 				)
 			);
@@ -32,9 +36,11 @@ function EventsPage() {
 	return (
 		<section className='wrapper'>
 			<main className='events-page'>
-				{/* --- biljettikonen som varukorg --- */}
 				<header>
+					{/* --- Sidtitel --- */}
 					<h1 className='events-page__title'>Events</h1>
+
+					{/* --- Biljettikonen som varukorg --- */}
 					<Basket />
 				</header>
 

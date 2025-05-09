@@ -56,8 +56,6 @@ function Orders() {
 		navigate(path);
 	};
 
-	console.log(tickets);
-
 	return (
 		<>
 			{/* --- Varje event med amount > 0 får en TicketCounter --- */}

@@ -11,8 +11,6 @@ export const useFetchEvents = () => {
 	useEffect(() => {
 		setIsLoading(true);
 		if (eventStore.length === 0) {
-			console.log('Axios is running!');
-
 			axios
 				.get('https://santosnr6.github.io/Data/events.json')
 				.then((response) => setEvents(response.data.events))

@@ -4,13 +4,11 @@ import './ticketsPage.css';
 
 function TicketsPage() {
 	const { tickets } = useTicketStore();
-	console.log('Tickets are');
-
-	console.log(tickets);
 
 	return (
 		<section className='wrapper gradient'>
 			<main className='tickets-page'>
+				{/* --- Vertikal Swiper --- */}
 				<swiper-container
 					grab-cursor='true'
 					effect='cards'
@@ -23,6 +21,7 @@ function TicketsPage() {
 					className='mySwiper'>
 					{tickets.map((ticket) => {
 						return (
+							// --- Varje swiper-slide är en biljett ---
 							<swiper-slide key={ticket.ticketID}>
 								<Ticket ticket={ticket} />
 							</swiper-slide>

@@ -5,6 +5,7 @@ const useEventStore = create((set) => ({
 	setEvents: (newEvents) => {
 		set({ events: newEvents });
 	},
+
 	addNewEvent: (newEvent) => {
 		set((state) => ({
 			events: [
@@ -24,17 +25,17 @@ const useEventStore = create((set) => ({
 			],
 		}));
 	},
+
 	emptyAllEventAmount: () => {
 		set((state) => {
 			const updatedEvent = state.events.map((event) => {
 				return { ...event, amount: 0 };
 			});
-			console.log('EmptyAllEventAmount has been triggered!');
-			console.log(updatedEvent);
 
 			return { events: updatedEvent };
 		});
 	},
+
 	addEventAmount: (id, newAmount) => {
 		set((state) => {
 			const updatedEvent = state.events.map((oldEvent) => {
@@ -47,6 +48,7 @@ const useEventStore = create((set) => ({
 			return { events: updatedEvent };
 		});
 	},
+
 	increaseEventAmount: (id) => {
 		set((state) => {
 			const updatedEvent = state.events.map((oldEvent) => {
@@ -59,6 +61,7 @@ const useEventStore = create((set) => ({
 			return { events: updatedEvent };
 		});
 	},
+
 	decreaseEventAmount: (id) => {
 		set((state) => {
 			const updatedEvent = state.events.map((oldEvent) => {
