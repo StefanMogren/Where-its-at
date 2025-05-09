@@ -9,22 +9,18 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import './addEventPage.css';
-import { useFetchEvents } from '../../hooks/useFetchEvents';
 import useApiCheckStore from '../../stores/useApiCheckStore';
+import ApiCheck from '../../components/ApiCheck/ApiCheck';
 
 function AddEventPage() {
-	const { events, addNewEvent, addEventAmount } = useEventStore();
+	const { events, addEventAmount } = useEventStore();
 	const { id } = useParams();
 
-	const { events: eventsAPI, isLoading, isError } = useFetchEvents();
+	const { isLoading, isError } = useApiCheckStore();
+
 	const [currentEvent, setCurrentEvent] = useState(null);
 
-	useEffect(() => {
-		if (events.length === 0 && eventsAPI.length > 0) {
-			eventsAPI.forEach((event) => addNewEvent(event));
-		}
-	}, [eventsAPI]);
-
+	// Letar upp eventet som matchar ID i adressfältet
 	useEffect(() => {
 		if (events.length > 0) {
 			setCurrentEvent(events.find((event) => event.id === id));
@@ -82,49 +78,67 @@ function AddEventPage() {
 						)}
 					</AnimatePresence>
 				</header>
-				<p className='add-event-page__subtitle'>
-					You are about to score some tickets to
-				</p>
 
-				{/* --- Eventdetaljer --- */}
-				{currentEvent && (
+				{/* ---Kontroll ifall API:et laddas eller misslyckats --- */}
+				{isLoading || isError ? (
+					<ApiCheck />
+				) : (
 					<>
-						<section className='add-event-page__info'>
-							{/* --- Eventnamn --- */}
-							<h2 className='add-event-page__event-title'>
-								{name}
-							</h2>
+						<p className='add-event-page__subtitle'>
+							You are about to score some tickets to
+						</p>
 
-							{/* --- Datum och tid --- */}
-							<p className='add-event-page__date'>
-								<Date when={when.date} shorten={false} />
-								{' kl '}
-								<Time time={when.from} />
-								{' - '}
-								<Time time={when.to} />
-							</p>
+						{/* --- Eventdetaljer --- */}
+						{currentEvent ? (
+							<>
+								<section className='add-event-page__info'>
+									{/* --- Eventnamn --- */}
+									<h2 className='add-event-page__event-title'>
+										{name}
+									</h2>
 
-							{/* --- Plats --- */}
-							<p className='add-event-page__location'>
-								@ {where}
-							</p>
-						</section>
+									{/* --- Datum och tid --- */}
+									<p className='add-event-page__date'>
+										<Date
+											when={when.date}
+											shorten={false}
+										/>
+										{' kl '}
+										<Time time={when.from} />
+										{' - '}
+										<Time time={when.to} />
+									</p>
 
-						{/* --- Räknaren, pris, antal --- */}
-						<TicketCounter
-							amount={numberOfTickets}
-							increaseAmount={setNumberOfTickets}
-							decreaseAmount={setNumberOfTickets}>
-							{/* --- children inuti komponenten */}
-							<h2 className='add-event-page__cost'>
-								{numberOfTickets * price} sek
-							</h2>
-						</TicketCounter>
+									{/* --- Plats --- */}
+									<p className='add-event-page__location'>
+										@ {where}
+									</p>
+								</section>
 
-						{/* --- Lägg till-knappen --- */}
-						<Button onClick={() => addToBasket()}>
-							Lägg i varukorgen
-						</Button>
+								{/* --- Räknaren, pris, antal --- */}
+								<TicketCounter
+									amount={numberOfTickets}
+									increaseAmount={setNumberOfTickets}
+									decreaseAmount={setNumberOfTickets}>
+									{/* --- children inuti komponenten */}
+									<h2 className='add-event-page__cost'>
+										{numberOfTickets * price} sek
+									</h2>
+								</TicketCounter>
+
+								{/* --- Lägg till-knappen --- */}
+								<Button onClick={() => addToBasket()}>
+									Lägg i varukorgen
+								</Button>
+							</>
+						) : (
+							<section>
+								<p>
+									Hoppsan! Det här eventet verkar inte finnas
+									i vårat register.
+								</p>
+							</section>
+						)}
 					</>
 				)}
 			</main>

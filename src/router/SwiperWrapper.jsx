@@ -20,10 +20,6 @@ const indexToRoute = {
 	2: '/tickets',
 };
 
-import useEventStore from '../stores/useEventStore';
-import useApiCheckStore from '../stores/useApiCheckStore';
-import { useFetchEvents } from '../hooks/useFetchEvents';
-
 const SwiperWrapper = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -46,33 +42,6 @@ const SwiperWrapper = () => {
 			navigate(newRoute, { replace: true });
 		}
 	};
-
-	// --- useFetchEvent ---
-	// Saker för att hämta Eventdata från API
-	// Även förvara datan i useEventsStore
-	const { events: eventsAPI, isLoading, isError } = useFetchEvents();
-
-	const { setIsLoading, setIsError } = useApiCheckStore();
-
-	useEffect(() => {
-		setIsLoading(isLoading);
-	}, [isLoading]);
-
-	useEffect(() => {
-		setIsError(isError);
-		console.log(isError);
-	}, [isError]);
-
-	const { events, addNewEvent } = useEventStore();
-	useEffect(() => {
-		if (events.length === 0 && eventsAPI.length > 0) {
-			eventsAPI.forEach((event) => addNewEvent(event));
-			// setEvents(eventsAPI);
-		}
-	}, [eventsAPI]);
-	console.log(events);
-
-	// --- Return ---
 	return (
 		<Swiper
 			onSwiper={(swiper) => (swiperRef.current = swiper)}
