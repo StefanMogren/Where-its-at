@@ -58,6 +58,7 @@ function EventsPage() {
 						icon={faMagnifyingGlass}
 						style={{ color: '#FFFFFF33' }}
 						size='xl'
+						aria-hidden='true'
 					/>
 					<input
 						type='search'

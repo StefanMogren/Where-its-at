@@ -33,7 +33,11 @@ function Basket() {
 			onClick={goToOrderPage}
 			aria-label='varukorg'>
 			{/* --- Biljettikon --- */}
-			<FontAwesomeIcon icon={faTicket} style={{ color: `var(--pink)` }} />
+			<FontAwesomeIcon
+				icon={faTicket}
+				style={{ color: `var(--pink)` }}
+				aria-hidden='true'
+			/>
 
 			{/* --- Antalet ovanpå ikonen --- */}
 			{totalAmount > 0 ? (

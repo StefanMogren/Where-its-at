@@ -25,7 +25,7 @@ function TicketCounter({ amount, increaseAmount, decreaseAmount, children }) {
 				className='counter__btn'
 				onClick={() => decrease()}
 				aria-label='minska antal'>
-				<FontAwesomeIcon icon={faMinus} />
+				<FontAwesomeIcon icon={faMinus} aria-hidden='true' />
 			</button>
 
 			{/* --- Antalet biljetter --- */}
@@ -36,7 +36,7 @@ function TicketCounter({ amount, increaseAmount, decreaseAmount, children }) {
 				className='counter__btn'
 				onClick={() => increase()}
 				aria-label='öka antal'>
-				<FontAwesomeIcon icon={faPlus} />
+				<FontAwesomeIcon icon={faPlus} aria-hidden='true' />
 			</button>
 		</section>
 	);
