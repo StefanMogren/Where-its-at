@@ -13,11 +13,16 @@ import useApiCheckStore from '../../stores/useApiCheckStore';
 import ApiCheck from '../../components/ApiCheck/ApiCheck';
 
 function AddEventPage() {
+	// --- useEventStore ---
+	// Innehåller eventdatan från API:et
 	const { events, addEventAmount } = useEventStore();
 	const { id } = useParams();
 
+	// --- useApiCheckStore ---
+	// Kontrollerna för ifall hämtningen av API:et fortfarande görs eller misslyckades.
 	const { isLoading, isError } = useApiCheckStore();
 
+	// Lokal useState för att hålla koll på vilket event som ska visas
 	const [currentEvent, setCurrentEvent] = useState(null);
 
 	// Letar upp eventet som matchar ID i adressfältet
@@ -82,6 +87,7 @@ function AddEventPage() {
 
 				{/* ---Kontroll ifall API:et laddas eller misslyckats --- */}
 				{isLoading || isError ? (
+					// --- Genererar meddelande ifall endera är sann ---
 					<ApiCheck />
 				) : (
 					<>

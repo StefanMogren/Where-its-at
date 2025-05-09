@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import './basket.css';
 
 function Basket() {
+	// --- useEventStore ---
+	// Innehåller eventdatan från API:et
 	const { events } = useEventStore();
 	const [totalAmount, setTotalAmount] = useState(0);
 
@@ -27,7 +29,7 @@ function Basket() {
 
 	return (
 		<button className='basket' onClick={goToOrderPage}>
-			{/* --- Ikonen --- */}
+			{/* --- Biljettikon --- */}
 			<FontAwesomeIcon icon={faTicket} style={{ color: `var(--pink)` }} />
 
 			{/* --- Antalet ovanpå ikonen --- */}

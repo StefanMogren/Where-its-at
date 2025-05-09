@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AddEventPage from '../pages/AddEventPage/AddEventPage';
 import OrderPage from '../pages/OrderPage/OrderPage';
-import SwiperWrapper from './SwiperWrapper';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
+import SwiperWrapper from './SwiperWrapper';
 
 import { useEffect } from 'react';
 import useEventStore from '../stores/useEventStore';
@@ -11,7 +11,8 @@ import { useFetchEvents } from '../hooks/useFetchEvents';
 
 export const Router = () => {
 	// --- useFetchEvent ---
-	// Saker för att hämta Eventdata från API
+	// Hooken som hämtar API-datan
+	// Kontroll inuti hooken där API:et bara hämtas ifall datan inte redan finns inuti useEventStore
 	const { events: eventsAPI, isLoading, isError } = useFetchEvents();
 
 	// --- useApiCheckStore ---
@@ -28,7 +29,8 @@ export const Router = () => {
 		}
 	}, [isError]);
 
-	// Kontroll för att lägga till API:ets events i sidans useEventStore bara ifall API:ets event är färdighämtade samt att de inte redan är tillagda.
+	// --- useEventStore ---
+	// Kontroll för att lägga till API:ets events i appens useEventStore.
 	const { events, addNewEvent } = useEventStore();
 	useEffect(() => {
 		if (events.length === 0 && eventsAPI.length > 0) {

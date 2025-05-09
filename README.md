@@ -12,7 +12,7 @@ Detta bibliotek ger dig tillgång till "alla" av FontAwesomes ikoner så du kan 
 
 Biblioteket är bekvämt att använda då det bara är att leta upp en passande ikon från FontAwesome, importera den och sedan styla den direkt med CSS. Den begränsning som finns är dock att ikonerna är uppdelade mellan de som är gratis och de som kräver en proversion. Gratisikonerna kan användas så mycket man vill men proversionen kräver en årlig kostnad för att få tillgång till.
 
-I min app används ikoner för förstorningsglas, bakåtpil och biljett. Enkla ikoner som jag inte behöver krångla med hur de ser ut.
+I min app används ikoner för förstorningsglas, bakåtpil, biljett samt plus- och minussymbolen. Enkla ikoner som jag inte behöver krångla med hur de ser ut.
 
 ## Swiper
 
@@ -26,6 +26,6 @@ I min app används Swiper för att navigera mellan tre av fem sidor. Swiper anv�
 
 Detta bibliotek gör det enkelt att kunna lägga på en massa olika animationseffekter på komponenter och element. Allt från förflyttningar, rotation, synlighet, respons från användarens input med mera.
 
-Saker som rör på sig på ett snyggt sätt kan både användas för att fånga användarens uppmärksamhet samt göra sidan "roligare" att besöka. En användares upplevelse är inte bara begränsad till hur lätt/svårt det är att nå sitt mål utan även "oooh"-upplevelsen de kan få av att se animationer.
+Saker som rör på sig på ett snyggt sätt kan både användas för att fånga användarens uppmärksamhet samt göra sidan "roligare" att besöka. En användares upplevelse är inte bara begränsad till hur lätt/svårt det är att nå sitt mål utan även "oooh"-upplevelsen de kan få av att se animationerna.
 
 I min app så används en Framer Motion för att förtydliga för användaren när de lägger till biljetter i varukorgen. Ett litet pop-up meddelande dyker upp som ger feedback på vad användaren gör. Lite animation och rörelse gör meddelandet lite trevligare.

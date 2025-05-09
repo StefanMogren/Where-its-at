@@ -9,12 +9,15 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import './eventsPage.css';
 
 function EventsPage() {
+	// --- useEventStore ---
+	// Innehåller eventdatan från API:et
 	const { events } = useEventStore();
 
-	// Kontroller för ifall hämtningen av API:et fortfarande görs eller misslyckades.
+	// --- useApiCheckStore ---
+	// Kontrollerna för ifall hämtningen av API:et fortfarande görs eller misslyckades.
 	const { isLoading, isError } = useApiCheckStore();
 
-	// useState för sökfunktionaliteten
+	// Lokal useState för sökfunktionaliteten
 	const [searchInput, setSearchInput] = useState('');
 	const [filteredEvents, setFilteredEvents] = useState('');
 
@@ -24,10 +27,11 @@ function EventsPage() {
 		if (searchInput.length > 0) {
 			setFilteredEvents(
 				events.filter((event) =>
-					// Ser till så både söknamnet och eventnamnet matchar mot små bokstäver
+					// Ser till så både sökinputen och eventnamnet matchar mot små bokstäver
 					event.name.toLowerCase().includes(searchInput.toLowerCase())
 				)
 			);
+			// Visar alla events ifall sökinputen är tom
 		} else if (searchInput.length === 0) {
 			setFilteredEvents(events);
 		}
@@ -62,6 +66,7 @@ function EventsPage() {
 
 				{/* --- Kontroll ifall laddningen av API:et laddas eller har misslyckats --- */}
 				{isLoading || isError ? (
+					// --- Genererar meddelande ifall endera är sann ---
 					<ApiCheck />
 				) : (
 					/* --- Listan med events --- */

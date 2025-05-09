@@ -4,6 +4,7 @@ import './ticket.css';
 
 function Ticket({ ticket }) {
 	const { name, where, when, section, seat, ticketID } = ticket;
+
 	return (
 		<article className='ticket'>
 			{/* --- Eventets namn --- */}

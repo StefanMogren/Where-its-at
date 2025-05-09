@@ -5,6 +5,8 @@ import Orders from '../../components/Orders/Orders';
 import './orderPage.css';
 
 function OrderPage() {
+	// --- useEventStore ---
+	// Innehåller eventdatan från API:et
 	const { events } = useEventStore();
 
 	return (

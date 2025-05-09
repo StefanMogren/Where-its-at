@@ -9,63 +9,28 @@ function Date({ when, shorten }) {
 		const yearNumber = '2025-';
 
 		// Gör om månaden till ett strängnummer
-		let monthNumber;
-		switch (month) {
-			case 'Januari':
-				monthNumber = '01-';
-				break;
+		const monthToNumber = {
+			Januari: '01-',
+			Februari: '02-',
+			Mars: '03-',
+			April: '04-',
+			Maj: '05-',
+			Juni: '06-',
+			Juli: '07-',
+			Augusti: '08-',
+			September: '09-',
+			Oktober: '10-',
+			November: '11-',
+			December: '12-',
+		};
 
-			case 'Februari':
-				monthNumber = '02-';
-				break;
-
-			case 'Mars':
-				monthNumber = '03-';
-				break;
-
-			case 'April':
-				monthNumber = '04-';
-				break;
-
-			case 'Maj':
-				monthNumber = '05-';
-				break;
-
-			case 'Juni':
-				monthNumber = '06-';
-				break;
-
-			case 'Juli':
-				monthNumber = '07-';
-				break;
-
-			case 'Augusti':
-				monthNumber = '08-';
-				break;
-
-			case 'September':
-				monthNumber = '09-';
-				break;
-
-			case 'Oktober':
-				monthNumber = '10-';
-				break;
-
-			case 'November':
-				monthNumber = '11-';
-				break;
-
-			case 'December':
-				monthNumber = '12-';
-				break;
-		}
-
-		return `${yearNumber + monthNumber + date.padStart(2, '0')}`;
+		return `${yearNumber + monthToNumber[month] + date.padStart(2, '0')}`;
 	};
 
 	return (
 		<time dateTime={fullDate()}>
 			<span>{date}</span>{' '}
+			{/* --- Om shorten är sann, förkortar månaden till tre bokstäver --- */}
 			<span>{shorten ? month.slice(0, 3) : month}</span>
 		</time>
 	);

@@ -3,6 +3,8 @@ import useTicketStore from '../../stores/useTicketStore';
 import './ticketsPage.css';
 
 function TicketsPage() {
+	// --- useTicketStore ---
+	// Innehåller datan för biljetterna som användaren köpt
 	const { tickets } = useTicketStore();
 
 	return (

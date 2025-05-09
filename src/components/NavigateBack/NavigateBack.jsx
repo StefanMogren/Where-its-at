@@ -7,6 +7,7 @@ function NavigateBack() {
 	const navigate = useNavigate();
 
 	return (
+		// --- Vänsterpil, navigera bakåt i historiken ---
 		<button className='navigate-btn' onClick={() => navigate(-1)}>
 			<FontAwesomeIcon
 				icon={faArrowLeft}

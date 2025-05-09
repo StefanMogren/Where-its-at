@@ -14,20 +14,22 @@ function EventItem({ event }) {
 
 	return (
 		<li>
+			{/* --- Varje EventItem länkar till /add-event sidan */}
 			<Link className='event-item' to={`/add-event/${id}`}>
 				{/* --- Datum --- */}
 				<div className='event-item__date'>
 					<Date when={date} shorten={true} />
 				</div>
 
-				{/* --- Behållare för titel, plats, tid, pris --- */}
 				<section className='event-item__info'>
 					{/* --- Titel --- */}
 					<h2 className='event-item__title'>{name}</h2>
 					<section className='event-item__details'>
-						{/* --- Plats, tid --- */}
 						<div className='event-item__inner-details'>
+							{/* --- Plats --- */}
 							<p className='event-item__location'>{where}</p>
+
+							{/* --- Tid --- */}
 							<p className='event-item__time'>
 								<Time time={from} /> - <Time time={to} />
 							</p>

@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 function Orders() {
+	// --- useEventStore ---
+	// Innehåller eventdatan från API:et
 	const {
 		events,
 		increaseEventAmount,
@@ -16,7 +18,9 @@ function Orders() {
 		emptyAllEventAmount,
 	} = useEventStore();
 
-	const { tickets, addTicket } = useTicketStore();
+	// --- useTicketStore ---
+	// Innehåller datan för biljetterna som användaren köpt
+	const { addTicket } = useTicketStore();
 
 	const [totalCost, setTotalCost] = useState(0);
 
@@ -36,19 +40,22 @@ function Orders() {
 	const purchaseTickets = () => {
 		events.forEach((event) => {
 			if (event.amount > 0) {
+				// Slumpmässig sektion
 				const letterIndex = Math.floor(Math.random() * 26) + 65;
 				const randomSection = String.fromCharCode(letterIndex);
 
+				// Slumpmässigt säte
 				const randomSeat = Math.floor(Math.random() * 300) + 1;
 				for (let i = 0; i < event.amount; i++) {
 					const seat = randomSeat + i;
 
+					// Skapar biljett till useTicketStore
 					addTicket(event, randomSection, seat, generateTicketID());
 				}
 			}
 		});
 
-		//Töm useEventStore
+		// Sätt alla amount i useEventStore till 0
 		emptyAllEventAmount();
 
 		// Gå till /tickets sidan
@@ -88,10 +95,11 @@ function Orders() {
 				}
 			})}
 
-			{/* --- Totala kostnaden, skicka-knappen --- */}
 			<section className='order-page__summary'>
 				Totalt värde på order
+				{/* --- Totala kostnaden --- */}
 				<span className='order-page__total-cost'>{totalCost} sek</span>
+				{/* --- Skicka order-knappen --- */}
 				<Button onClick={purchaseTickets}>Skicka order</Button>
 			</section>
 		</>
