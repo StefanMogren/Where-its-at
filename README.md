@@ -1,25 +1,31 @@
-# react-base-profile
-Grundprofilen för nya React-projekt.
+# Where it's @
 
-Kom ihåg att köra **"npm install"** då "node_modules" ej inkluderas i repot.
-Kom även ihåg att köra **"npm i axios"**
+Appen använder sig av 3 stycken React bibliotek.
 
-Vill du byta namn på React-projektet så kan du göra det i "package.json".
+-   FontAwesomeIcon
+-   Swiper
+-   Framer Motion
 
-Använder sig av:
-* React v19.0.0
-* Node.js v22.14.0
-* NPM v11.2.0
-* Vite v6.2.2, win32-x64
-* Axios v1.8.4
+## FontAwesomeIcon
 
-		"@eslint/js": "^9.21.0",
-		"@types/react": "^19.0.10",
-		"@types/react-dom": "^19.0.4",
-		"@vitejs/plugin-react": "^4.3.4",
-		"eslint": "^9.21.0",
-		"eslint-plugin-react-hooks": "^5.1.0",
-		"eslint-plugin-react-refresh": "^0.4.19",
-		"globals": "^15.15.0",
-		"vite": "^6.2.0"
-  
+Detta bibliotek ger dig tillgång till "alla" av FontAwesomes ikoner så du kan importera dem direkt utan att behöva ha en massa ikoner i projektets asset-mapp. Biblioteket ger dig också möjligheten att styla ikonerna direkt i koden utan att behöva skaffa en ny ikon för varje ny variation.
+
+Biblioteket är bekvämt att använda då det bara är att leta upp en passande ikon från FontAwesome, importera den och sedan styla den direkt med CSS. Den begränsning som finns är dock att ikonerna är uppdelade mellan de som är gratis och de som kräver en proversion. Gratisikonerna kan användas så mycket man vill men proversionen kräver en årlig kostnad för att få tillgång till.
+
+I min app används ikoner för förstorningsglas, bakåtpil och biljett. Enkla ikoner som jag inte behöver krångla med hur de ser ut.
+
+## Swiper
+
+Detta bibliotek öppnar upp för att kunna swipa mellan sidor och komponenter på appen/webbsidan. Då både för att navigera fram och tillbaka samt för att bläddra mellan exemelvis olika bilder. Övergången blir också animerad.
+
+Då appen som skapas är tänkt som en mobilapp så är Swiper ett logiskt val för att navigera mellan vissa sidor. Detta då mobilanvändare har som vana att kunna swipa sig fram.
+
+I min app används Swiper för att navigera mellan tre av fem sidor. Swiper används även för att swipa mellan biljetterna som användaren köpt. Det blir visuellt mer intressant att se biljetterna staplade på varandra samt att de förflyttas upp och ned via rörelse än att bara statiskt gå från en biljett till en annan. Användarupplevelsen blir bättre.
+
+## Framer Motion
+
+Detta bibliotek gör det enkelt att kunna lägga på en massa olika animationseffekter på komponenter och element. Allt från förflyttningar, rotation, synlighet, respons från användarens input med mera.
+
+Saker som rör på sig på ett snyggt sätt kan både användas för att fånga användarens uppmärksamhet samt göra sidan "roligare" att besöka. En användares upplevelse är inte bara begränsad till hur lätt/svårt det är att nå sitt mål utan även "oooh"-upplevelsen de kan få av att se animationer.
+
+I min app så används en Framer Motion för att förtydliga för användaren när de lägger till biljetter i varukorgen. Ett litet pop-up meddelande dyker upp som ger feedback på vad användaren gör. Lite animation och rörelse gör meddelandet lite trevligare.
